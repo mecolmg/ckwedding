@@ -1,0 +1,32 @@
+@import '../devices';
+
+.weddingInfo {
+  padding: 24px 16px;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.events {
+  display: flex;
+  justify-content: center;
+}
+
+.event {
+  margin: 0 24px;
+}
+
+@media #{$screen-phone} {
+  .weddingInfo {
+    padding: 16px 8px;
+  }
+
+  .events {
+    flex-direction: column;
+  }
+
+  .event {
+    margin: 0 16px;
+  }
+}

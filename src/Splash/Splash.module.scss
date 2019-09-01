@@ -1,0 +1,17 @@
+@import '../devices';
+
+.splash {
+  width: 100%;
+  height: 60vh;
+  background: url('images/AcornStreet.jpg'), #7d572f;
+  background-blend-mode: hard-light;
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+}
+
+@media #{$screen-phone} {
+  .splash {
+    height: 50vh;
+  }
+}

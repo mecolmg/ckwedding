@@ -1,0 +1,13 @@
+@import 'typography';
+@import '~@csstools/normalize.css';
+
+/* Global Styles */
+body {
+  width: 100%;
+  margin: 0;
+}
+
+a {
+  color: #4f0505;
+  text-decoration: none;
+}
