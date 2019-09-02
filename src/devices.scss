@@ -1,3 +1,17 @@
+/**
+ * Device size and media query variables.
+ */
+
+/* Device sizes. */
+$phone-small: 320px;
+$phone-medium: 375px;
+$phone-large: 425px;
+$phone: $phone-large;
+$tablet: 768px;
+$mobile: 1024px;
+$desktop: 1440px;
+
+/* Media queries. */
 $screen-phone: "only screen and (max-width: 425px)";
 $screen-mobile: "only screen and (max-width: 1024px)";
 $screen-desktop: "only screen and (min-width: 1025px)";

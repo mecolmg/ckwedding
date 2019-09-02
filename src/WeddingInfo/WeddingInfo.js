@@ -1,18 +1,14 @@
 import React from "react";
 import styles from "./WeddingInfo.module.scss";
-import Countdown from 'react-countdown-now';
+import Countdown from "react-countdown-now";
 
 function WeddingInfo() {
   return (
-    <div className={styles.weddingInfo}>
+    <div className={styles.weddingInfo + ' card'}>
       <h1 className={styles.title}>The Wedding</h1>
-      <div>
-        <Countdown
-          date="Sat, 26 Sep 2020"
-          renderer={props => props.days}
-        />
-        {' '}
-        Days Away!
+      <div className={styles.countdown}>
+        ~ <Countdown date="Sat, 26 Sep 2020" renderer={props => props.days} />{" "}
+        Days Away ~
       </div>
       <div className={styles.events}>
         <div className={styles.event}>
@@ -25,7 +21,7 @@ function WeddingInfo() {
             <p>Whitehall Estate</p>
             <p>
               18301 Whitehall Estate Ln,
-              <br/>
+              <br />
               Bluemont, VA 20135
             </p>
           </div>

@@ -1,11 +1,17 @@
 @import '../devices';
+@import '../colors';
+@import 'material-shadows/material-shadows';
 
 .weddingInfo {
-  padding: 24px 16px;
+  margin-top: -24px;
 }
 
 .title {
   margin-top: 0;
+}
+
+.countdown {
+  color: $burgundy;
 }
 
 .events {
@@ -18,10 +24,6 @@
 }
 
 @media #{$screen-phone} {
-  .weddingInfo {
-    padding: 16px 8px;
-  }
-
   .events {
     flex-direction: column;
   }

@@ -1,13 +1,35 @@
-@import 'typography';
-@import '~@csstools/normalize.css';
+@import "typography";
+@import "colors";
+@import 'devices';
+@import "~@csstools/normalize.css";
+@import 'material-shadows/material-shadows';
 
 /* Global Styles */
-body {
+html, body {
   width: 100%;
   margin: 0;
+  background: $body-color;
+  min-width: $phone-medium;
 }
 
 a {
-  color: #4f0505;
+  color: $burgundy;
   text-decoration: none;
 }
+
+.card {
+  padding: 24px 16px;
+  margin: 16px auto 16px auto;
+  background: white;
+  @include z-depth(2);
+  position: relative;
+  max-width: 1024px;
+}
+
+@media #{$screen-mobile} {
+  .card {
+    padding: 16px;
+    margin: 16px;
+  }
+}
+

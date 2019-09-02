@@ -1,3 +1,9 @@
+// Module styles for Navigation component.
+
+.navigation {
+  margin-bottom: -24px;
+}
+
 .menu {
   display: flex;
   justify-content: center;
@@ -7,4 +13,8 @@
 .menuItem {
   display: flex;
   margin: 0 16px;
+}
+
+.nowrap {
+  display: inline-block;
 }
