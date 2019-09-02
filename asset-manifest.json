@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ckwedding/static/css/main.bb938fad.chunk.css",
+    "main.js": "/ckwedding/static/js/main.338b67ec.chunk.js",
+    "main.js.map": "/ckwedding/static/js/main.338b67ec.chunk.js.map",
+    "runtime~main.js": "/ckwedding/static/js/runtime~main.9ce6b872.js",
+    "runtime~main.js.map": "/ckwedding/static/js/runtime~main.9ce6b872.js.map",
+    "static/js/2.824f9ee6.chunk.js": "/ckwedding/static/js/2.824f9ee6.chunk.js",
+    "static/js/2.824f9ee6.chunk.js.map": "/ckwedding/static/js/2.824f9ee6.chunk.js.map",
+    "index.html": "/ckwedding/index.html",
+    "precache-manifest.66001d399564691c62f751ab9757948c.js": "/ckwedding/precache-manifest.66001d399564691c62f751ab9757948c.js",
+    "service-worker.js": "/ckwedding/service-worker.js",
+    "static/css/main.bb938fad.chunk.css.map": "/ckwedding/static/css/main.bb938fad.chunk.css.map",
+    "static/media/Splash.module.scss": "/ckwedding/static/media/AcornStreet.999619bf.jpg"
+  }
+}
