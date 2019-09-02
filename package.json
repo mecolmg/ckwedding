@@ -2,8 +2,10 @@
   "name": "ckwedding",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mecolmg.github.io/ckwedding",
   "dependencies": {
     "eslint": "^6.3.0",
+    "gh-pages": "^2.1.1",
     "material-shadows": "^3.0.1",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
@@ -13,6 +15,8 @@
     "react-scripts": "3.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
