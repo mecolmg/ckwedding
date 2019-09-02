@@ -1,10 +1,11 @@
+// Global styles.
+
 @import "typography";
 @import "colors";
 @import 'devices';
 @import "~@csstools/normalize.css";
 @import 'material-shadows/material-shadows';
 
-/* Global Styles */
 html, body {
   width: 100%;
   margin: 0;

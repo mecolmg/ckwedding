@@ -1,9 +1,14 @@
-@import '../devices';
+// Module styles for Splash component.
+
+@import 'devices';
+
+$splash-image: url('images/AcornStreet.jpg');
+$splash-background-color: #7d572f;
 
 .splash {
   width: 100%;
   height: 60vh;
-  background: url('images/AcornStreet.jpg'), #7d572f;
+  background: $splash-image, $splash-background-color;
   background-blend-mode: hard-light;
   background-size: cover;
   background-position: center 40%;
