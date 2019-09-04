@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/ckwedding/static/css/main.7d5ce80d.chunk.css",
-    "main.js": "/ckwedding/static/js/main.5d386d1d.chunk.js",
-    "main.js.map": "/ckwedding/static/js/main.5d386d1d.chunk.js.map",
-    "runtime~main.js": "/ckwedding/static/js/runtime~main.9ce6b872.js",
-    "runtime~main.js.map": "/ckwedding/static/js/runtime~main.9ce6b872.js.map",
-    "static/js/2.824f9ee6.chunk.js": "/ckwedding/static/js/2.824f9ee6.chunk.js",
-    "static/js/2.824f9ee6.chunk.js.map": "/ckwedding/static/js/2.824f9ee6.chunk.js.map",
-    "index.html": "/ckwedding/index.html",
-    "precache-manifest.2eb11e155bbd0507055c1c79d53bcfd7.js": "/ckwedding/precache-manifest.2eb11e155bbd0507055c1c79d53bcfd7.js",
-    "service-worker.js": "/ckwedding/service-worker.js",
-    "static/css/main.7d5ce80d.chunk.css.map": "/ckwedding/static/css/main.7d5ce80d.chunk.css.map",
-    "static/media/Splash.module.scss": "/ckwedding/static/media/AcornStreet.999619bf.jpg"
+    "main.css": "/static/css/main.ac9e174a.chunk.css",
+    "main.js": "/static/js/main.90fdd84a.chunk.js",
+    "main.js.map": "/static/js/main.90fdd84a.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.d41b65be.js",
+    "runtime~main.js.map": "/static/js/runtime~main.d41b65be.js.map",
+    "static/js/2.824f9ee6.chunk.js": "/static/js/2.824f9ee6.chunk.js",
+    "static/js/2.824f9ee6.chunk.js.map": "/static/js/2.824f9ee6.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.301813119f10307195e05d5256968843.js": "/precache-manifest.301813119f10307195e05d5256968843.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.ac9e174a.chunk.css.map": "/static/css/main.ac9e174a.chunk.css.map",
+    "static/media/Splash.module.scss": "/static/media/AcornStreet.999619bf.jpg"
   }
 }
