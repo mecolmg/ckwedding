@@ -1,22 +1,27 @@
 // Module styles for Splash component.
 
-@import 'devices';
+@import "devices";
 
-$splash-image: url('images/AcornStreet.jpg');
+$splash-image: url("images/AcornStreet@0,5x.jpg");
+$splash-image-mobile: url("images/AcornStreet@0,33x.jpg");
+$splash-image-phone: url("images/AcornStreet@0,25x.jpg");
 $splash-background-color: #7d572f;
 
 .splash {
   width: 100%;
   height: 60vh;
-  background: $splash-image, $splash-background-color;
-  background-blend-mode: hard-light;
-  background-size: cover;
-  background-position: center 40%;
-  background-repeat: no-repeat;
+  background: $splash-image center 40% / cover no-repeat;
+}
+
+@media #{$screen-mobile} {
+  .splash {
+    background: $splash-image-mobile center 40% / cover no-repeat;
+  }
 }
 
 @media #{$screen-phone} {
   .splash {
+    background: $splash-image-phone center 40% / cover no-repeat;
     height: 50vh;
   }
 }

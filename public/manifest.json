@@ -5,7 +5,7 @@
     {
       "src": "favicon.svg",
       "type": "image/svg"
-    },
+    }
   ],
   "start_url": ".",
   "display": "standalone",
