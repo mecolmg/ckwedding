@@ -1,0 +1,23 @@
+// Styles for RSVP card.
+
+.formHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.families {
+  height: 200px;
+  overflow-y: auto;
+}
+
+.familyMember {
+  display: flex;
+}
+
+.familyMemberName {
+  flex: 3 0 0px;
+}
+
+.familyMember label {
+  flex: 1 1 0px;
+}
