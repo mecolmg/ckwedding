@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-import HomeView from './HomeView/HomeView';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
+import HomeView from "./HomeView/HomeView";
+import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(<HomeView />, document.getElementById('root'));
+ReactDOM.render(<HomeView />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
