@@ -1,19 +1,33 @@
 // Typograph, font, and other text styles and variables.
 
-// Google Fonts.
-@import url('https://fonts.googleapis.com/css?family=Gabriela|Playfair+Display+SC&display=swap');
+@import "colors";
 
-$header-font: 'Playfair Display SC', serif;
-$body-font: 'Gabriela', serif;
+// Google Fonts.
+@import url("https://fonts.googleapis.com/css?family=Gabriela|Playfair+Display+SC&display=swap");
+
+$header-font: "Playfair Display SC", serif;
+$body-font: "Gabriela", serif;
 
 body {
   font-family: $body-font;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.25;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $header-font;
   font-weight: normal;
+}
+
+.overline {
+  color: $burgundy;
+  font: bold 18px/24px $body-font;
+  margin: 8px 0;
 }

@@ -1,8 +1,9 @@
 // Module styles for WeddingInfo component.
 
-@import 'devices';
-@import 'colors';
-@import 'material-shadows/material-shadows';
+@import "colors";
+@import "devices";
+@import "index";
+@import "material-shadows/material-shadows";
 
 .weddingInfo {
   margin-top: -24px;
@@ -13,7 +14,7 @@
 }
 
 .countdown {
-  color: $burgundy;
+  @extend .overline;
 }
 
 .events {

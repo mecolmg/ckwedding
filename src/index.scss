@@ -2,11 +2,13 @@
 
 @import "typography";
 @import "colors";
-@import 'devices';
+@import "devices";
 @import "~@csstools/normalize.css";
-@import 'material-shadows/material-shadows';
+@import "material-shadows/material-shadows";
 
-html, body {
+// Global Styles.
+html,
+body {
   width: 100%;
   margin: 0;
   background: $body-color;
@@ -18,6 +20,7 @@ a {
   text-decoration: none;
 }
 
+// Card styles.
 .card {
   padding: 24px 16px;
   margin: 16px auto 16px auto;
@@ -33,4 +36,3 @@ a {
     margin: 16px;
   }
 }
-

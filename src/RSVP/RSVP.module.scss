@@ -1,0 +1,70 @@
+// Styles for RSVP card.
+@import "index";
+@import "colors";
+
+.rsvp {
+  @extend .card;
+}
+
+.title {
+  margin-top: 0;
+}
+
+.form {
+  max-width: 800px;
+  margin: 0px auto;
+
+  .formHeader,
+  .formFooter {
+    margin: 16px;
+  }
+
+  .formError {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nameInput {
+    margin: 0;
+  }
+
+  .submitButton {
+    .submitIcon {
+      margin-left: 8px;
+      font-size: inherit;
+    }
+  }
+}
+
+.families {
+  max-height: 400px;
+  overflow-y: auto;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: $primary;
+
+  @media #{$screen-tablet} {
+    & {
+      max-height: initial;
+    }
+  }
+
+  .familyName {
+    @extend .overline;
+  }
+}
+
+.familyMember {
+  display: flex;
+  align-items: center;
+
+  .familyMemberName {
+    flex: 3 0 0px;
+  }
+
+  .checkboxWithLabel {
+    flex: 1 1 0px;
+  }
+}
