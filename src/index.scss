@@ -5,6 +5,7 @@
 @import "devices";
 @import "~@csstools/normalize.css";
 @import "material-shadows/material-shadows";
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
 
 // Global Styles.
 html,
@@ -20,19 +21,25 @@ a {
   text-decoration: none;
 }
 
-// Card styles.
-.card {
-  padding: 24px 16px;
+.sectionMargins {
   margin: 16px auto 16px auto;
-  background: white;
-  @include z-depth(2);
-  position: relative;
   max-width: 1024px;
 }
 
+// Card styles.
+.card {
+  @extend .sectionMargins;
+  padding: 24px 16px;
+  background: white;
+  @include z-depth(2);
+  position: relative;
+}
+
 @media #{$screen-mobile} {
+  .sectionMargins {
+    margin: 16px;
+  }
   .card {
     padding: 16px;
-    margin: 16px;
   }
 }

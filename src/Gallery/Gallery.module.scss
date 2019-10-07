@@ -1,0 +1,16 @@
+// Module styles for Gallery component.
+@import "index";
+
+.gallery {
+  @extend .sectionMargins;
+}
+
+:global .image-gallery-content:not(.fullscreen) .image-gallery-image {
+  height: 66.41vw;
+  max-height: 600px;
+  img {
+    object-fit: contain;
+    object-position: center center;
+    height: 100%;
+  }
+}
