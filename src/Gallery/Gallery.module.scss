@@ -1,5 +1,6 @@
 // Module styles for Gallery component.
 @import "index";
+@import "colors";
 
 .gallery {
   @extend .sectionMargins;
@@ -20,5 +21,16 @@
       height: 66.41vw;
       max-height: 600px;
     }
+  }
+}
+
+:global .image-gallery-slide-wrapper {
+  button::before {
+    color: lighten($secondary, 20%);
+    text-shadow: 0 2px 2px lighten($secondary, 50%);
+  }
+  button:hover::before,
+  button:focus::before {
+    color: $secondary;
   }
 }
