@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./HomeView.module.scss";
 import Footer from "Footer/Footer";
 import Gallery from "Gallery/Gallery";
 import Navigation from "Navigation/Navigation";
