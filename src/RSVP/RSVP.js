@@ -224,9 +224,9 @@ class Family extends PureComponent {
     return (
       <div className={styles.family}>
         <div className={styles.familyName}>{this.props.familyName}</div>
-        <div className={styles.familyMembers}>
+        <table className={styles.familyMembers}>
           {this.renderFamilyMembers_()}
-        </div>
+        </table>
       </div>
     );
   }
@@ -262,36 +262,49 @@ class FamilyMember extends PureComponent {
 
   render() {
     const { familyMember } = this.props;
+
+    const rsvpCheckbox = (
+      <td className={styles.checkboxWithLabel}>
+        RSVP
+        <Checkbox
+          color="primary"
+          checked={this.state.rsvpd}
+          onChange={this.handleChange_("rsvpd")}
+        />
+      </td>
+    );
+    const rsvpPlusOneCheckbox = familyMember.hasPlusOne ? (
+      <td className={styles.checkboxWithLabel}>
+        RSVP +1
+        <Checkbox
+          color="primary"
+          checked={this.state.rsvpdPlusOne}
+          onChange={this.handleChange_("rsvpdPlusOne")}
+        />
+      </td>
+    ) : (
+      <td className={styles.checkboxWithLabel}></td>
+    );
+    const needsHotelCheckbox = (
+      <td className={styles.checkboxWithLabel}>
+        Need Hotel
+        <Checkbox
+          color="primary"
+          checked={this.state.needsHotel}
+          onChange={this.handleChange_("needsHotel")}
+        />
+      </td>
+    );
+
     return (
-      <div className={styles.familyMember}>
-        <div className={styles.familyMemberName}>
+      <tr className={styles.familyMember}>
+        <td className={styles.familyMemberName}>
           {familyMember.firstName} {familyMember.lastName}
-        </div>
-        <div className={styles.checkboxWithLabel}>
-          RSVP
-          <Checkbox
-            color="primary"
-            checked={this.state.rsvpd}
-            onChange={this.handleChange_("rsvpd")}
-          />
-        </div>
-        <div className={styles.checkboxWithLabel}>
-          RSVP +1
-          <Checkbox
-            color="primary"
-            checked={this.state.rsvpdPlusOne}
-            onChange={this.handleChange_("rsvpdPlusOne")}
-          />
-        </div>
-        <div className={styles.checkboxWithLabel}>
-          Need Hotel
-          <Checkbox
-            color="primary"
-            checked={this.state.needsHotel}
-            onChange={this.handleChange_("needsHotel")}
-          />
-        </div>
-      </div>
+        </td>
+        {rsvpCheckbox}
+        {rsvpPlusOneCheckbox}
+        {needsHotelCheckbox}
+      </tr>
     );
   }
 }
