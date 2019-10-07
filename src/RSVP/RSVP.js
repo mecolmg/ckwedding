@@ -6,6 +6,11 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import SendIcon from "@material-ui/icons/Send";
 import Checkbox from "@material-ui/core/Checkbox";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 // Google Script URLs.
 const GET_ATTENDEES_URL =
@@ -33,6 +38,8 @@ class RSVP extends PureComponent {
     super(props);
     this.state = {
       name: "",
+      warnDialogOpen: false,
+      confirmDialogOpen: false,
     };
     this.fetchAttendees_();
   }
@@ -114,7 +121,15 @@ class RSVP extends PureComponent {
   };
 
   handleSubmit_ = () => {
-    this.postAttendees_();
+    const changedFamilyIds = new Set();
+    this.getDiff_()
+      .toCollection()
+      .forEach(change => changedFamilyIds.add(change.familyId));
+    if (changedFamilyIds.size > 1) {
+      this.openWarnDialog();
+    } else {
+      this.openConfirmDialog();
+    }
   };
 
   rowHasName_ = familyMember => {
@@ -122,6 +137,25 @@ class RSVP extends PureComponent {
     const lastName = familyMember.get("lastName");
     const fullName = `${firstName} ${lastName}`.toLowerCase();
     return fullName.includes(this.state.name.toLowerCase());
+  };
+
+  openWarnDialog = () => {
+    this.setState({ warnDialogOpen: true });
+  };
+
+  closeWarnDialog = () => {
+    this.setState({ warnDialogOpen: false });
+  };
+
+  openConfirmDialog = () => {
+    this.setState({ confirmDialogOpen: true });
+  };
+
+  closeConfirmDialog = submit => {
+    this.setState({ confirmDialogOpen: false });
+    if (submit) {
+      this.postAttendees_();
+    }
   };
 
   renderFamilies_ = () => {
@@ -203,6 +237,53 @@ class RSVP extends PureComponent {
             </Button>
           </div>
         </div>
+        <Dialog open={this.state.warnDialogOpen} onClose={this.closeWarnDialog}>
+          <DialogTitle>Please update one family at a time.</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Please only update responses for a single family at a time. If you
+              are responding for someone from another family, please make a
+              separate submission with their response. Thank you!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.closeWarnDialog} color="primary" autoFocus>
+              Okay!
+            </Button>
+          </DialogActions>
+        </Dialog>
+        <Dialog
+          open={this.state.confirmDialogOpen}
+          onClose={() => this.closeConfirmDialog(false)}
+        >
+          <DialogTitle>Are you ready to submit?</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              You're about to submit your responses. These responses are not
+              official RSVP's, so don't worry if you change your mind later. You
+              can always update your response here and/or reach out to us at{" "}
+              <a href="mailto:katelyn.and.colm@gmail.com">
+                katelyn.and.colm@gmail.com
+              </a>
+              . {"\n\n"}Thank you for responding!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={() => this.closeConfirmDialog(false)}
+              color="primary"
+            >
+              Go Back
+            </Button>
+            <Button
+              onClick={() => this.closeConfirmDialog(true)}
+              color="primary"
+              autoFocus
+            >
+              Continue
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     );
   }
@@ -225,7 +306,7 @@ class Family extends PureComponent {
       <div className={styles.family}>
         <div className={styles.familyName}>{this.props.familyName}</div>
         <table className={styles.familyMembers}>
-          {this.renderFamilyMembers_()}
+          <tbody>{this.renderFamilyMembers_()}</tbody>
         </table>
       </div>
     );
