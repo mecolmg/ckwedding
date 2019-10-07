@@ -211,79 +211,95 @@ class RSVP extends PureComponent {
   render() {
     return (
       <div id="rsvpSection" className={styles.rsvp}>
-        <h1 className={styles.title}>Save-the-Date RSVP</h1>
-        <div className={styles.form}>
-          <div className={styles.formHeader}>
-            <TextField
-              label="Name"
-              className={styles.nameInput}
-              value={this.state.name}
-              onChange={this.handleChange_("name")}
-              margin="normal"
-              variant="outlined"
-            />
+        <div className={styles.content}>
+          <h1 className={styles.title}>Save-the-Date RSVP</h1>
+          <p className={styles.saveTheDateNotice}>
+            This is not an official RSVP. We're using your responses here to get
+            an idea of how many guests are planning to attend. We're also using
+            this to estimate the number of hotel rooms needed for those guests
+            coming from out of town.
+          </p>
+          <div className={styles.form}>
+            <div className={styles.formHeader}>
+              <TextField
+                label="Name"
+                className={styles.nameInput}
+                value={this.state.name}
+                onChange={this.handleChange_("name")}
+                margin="normal"
+                variant="outlined"
+              />
+            </div>
+            <div className={styles.families}>{this.renderFamilies_()}</div>
+            <div className={styles.formFooter}>
+              <Button
+                variant="contained"
+                color="primary"
+                className={styles.submitButton}
+                onClick={this.handleSubmit_}
+                disabled={!this.hasChanges_()}
+              >
+                Submit Responses
+                <SendIcon className={styles.submitIcon} />
+              </Button>
+            </div>
           </div>
-          <div className={styles.families}>{this.renderFamilies_()}</div>
-          <div className={styles.formFooter}>
-            <Button
-              variant="contained"
-              color="primary"
-              className={styles.submitButton}
-              onClick={this.handleSubmit_}
-              disabled={!this.hasChanges_()}
-            >
-              Submit Responses
-              <SendIcon className={styles.submitIcon} />
-            </Button>
-          </div>
+          <Dialog
+            open={this.state.warnDialogOpen}
+            onClose={this.closeWarnDialog}
+          >
+            <DialogTitle>Please update one family at a time.</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Please only update responses for a single family at a time. If
+                you are responding for someone from another family, please make
+                a separate submission with their response. Thank you!
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.closeWarnDialog} color="primary" autoFocus>
+                Okay!
+              </Button>
+            </DialogActions>
+          </Dialog>
+          <Dialog
+            open={this.state.confirmDialogOpen}
+            onClose={() => this.closeConfirmDialog(false)}
+          >
+            <DialogTitle>Are you ready to submit?</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                You're about to submit your responses. These responses are not
+                official RSVP's, so don't worry if you change your mind later.
+                You can always update your response here and/or reach out to us
+                at{" "}
+                <a
+                  href={`mailto:${EMAIL}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {EMAIL}
+                </a>
+                . {"\n\n"}Thank you for responding!
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button
+                onClick={() => this.closeConfirmDialog(false)}
+                color="primary"
+              >
+                Go Back
+              </Button>
+              <Button
+                onClick={() => this.closeConfirmDialog(true)}
+                color="primary"
+                autoFocus
+              >
+                Continue
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
-        <Dialog open={this.state.warnDialogOpen} onClose={this.closeWarnDialog}>
-          <DialogTitle>Please update one family at a time.</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Please only update responses for a single family at a time. If you
-              are responding for someone from another family, please make a
-              separate submission with their response. Thank you!
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.closeWarnDialog} color="primary" autoFocus>
-              Okay!
-            </Button>
-          </DialogActions>
-        </Dialog>
-        <Dialog
-          open={this.state.confirmDialogOpen}
-          onClose={() => this.closeConfirmDialog(false)}
-        >
-          <DialogTitle>Are you ready to submit?</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              You're about to submit your responses. These responses are not
-              official RSVP's, so don't worry if you change your mind later. You
-              can always update your response here and/or reach out to us at{" "}
-              <a href="mailto:katelyn.and.colm@gmail.com">
-                katelyn.and.colm@gmail.com
-              </a>
-              . {"\n\n"}Thank you for responding!
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button
-              onClick={() => this.closeConfirmDialog(false)}
-              color="primary"
-            >
-              Go Back
-            </Button>
-            <Button
-              onClick={() => this.closeConfirmDialog(true)}
-              color="primary"
-              autoFocus
-            >
-              Continue
-            </Button>
-          </DialogActions>
-        </Dialog>
       </div>
     );
   }

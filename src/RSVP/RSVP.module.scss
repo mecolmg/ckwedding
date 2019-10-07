@@ -6,12 +6,20 @@
   @extend .card;
 }
 
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .title {
   margin-top: 0;
 }
 
+.saveTheDateNotice {
+  margin: 0 auto;
+}
+
 .form {
-  max-width: 800px;
   margin: 0px auto;
 
   .formHeader,
