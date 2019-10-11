@@ -5,18 +5,18 @@ import request from "request";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import SendIcon from "@material-ui/icons/Send";
-import Checkbox from "@material-ui/core/Checkbox";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 // Google Script URLs.
-const GET_ATTENDEES_URL =
-  "https://script.google.com/macros/s/AKfycbyky0PZkAOw2WUT5mzhwabPyWk5j_AUUj3cWuIM/exec";
-const POST_ATTENDEES_URL =
-  "https://script.google.com/macros/s/AKfycbx7RkLwAfmzKZPsQpbmUfCooykkDg5MOZVsXk1oNQ/exec";
+const GET_ATTENDEES_URL = `https://script.google.com/macros/s/AKfycbyky0PZkAOw2WUT5mzhwabPyWk5j_AUUj3cWuIM/exec`;
+const POST_ATTENDEES_URL = `https://script.google.com/macros/s/AKfycbx7RkLwAfmzKZPsQpbmUfCooykkDg5MOZVsXk1oNQ/exec`;
 
 // Email constants.
 const EMAIL = "katelyn.and.colm@gmail.com";
@@ -47,7 +47,12 @@ class RSVP extends PureComponent {
   fetchAttendees_ = () => {
     request.get(GET_ATTENDEES_URL, (error, response) => {
       const responseData = JSON.parse(response.body);
-      const data = new DataFrame(responseData.rows, responseData.headers);
+      const data = new DataFrame(
+        responseData.rows,
+        responseData.headers,
+      ).withColumn("fullNameLower", row =>
+        `${row.get("firstName")} ${row.get("lastName")}`.toLowerCase(),
+      );
       this.setState({
         initialData: data,
         data,
@@ -132,13 +137,6 @@ class RSVP extends PureComponent {
     }
   };
 
-  rowHasName_ = familyMember => {
-    const firstName = familyMember.get("firstName");
-    const lastName = familyMember.get("lastName");
-    const fullName = `${firstName} ${lastName}`.toLowerCase();
-    return fullName.includes(this.state.name.toLowerCase());
-  };
-
   openWarnDialog = () => {
     this.setState({ warnDialogOpen: true });
   };
@@ -156,6 +154,12 @@ class RSVP extends PureComponent {
     if (submit) {
       this.postAttendees_();
     }
+  };
+
+  rowHasName_ = familyMember => {
+    return familyMember
+      .get("fullNameLower")
+      .includes(this.state.name.toLowerCase());
   };
 
   renderFamilies_ = () => {
@@ -362,34 +366,61 @@ class FamilyMember extends PureComponent {
 
     const rsvpCheckbox = (
       <td className={styles.checkboxWithLabel}>
-        RSVP
-        <Checkbox
-          color="primary"
-          checked={this.state.rsvpd}
-          onChange={this.handleChange_("rsvpd")}
-        />
+        <FormControl className={styles.selector}>
+          <InputLabel htmlFor="rsvpd">RSVP</InputLabel>
+          <Select
+            value={this.state.rsvpd}
+            onChange={this.handleChange_("rsvpd")}
+            inputProps={{
+              name: "rsvpd",
+              id: "rsvpd",
+            }}
+          >
+            <MenuItem value={""}></MenuItem>
+            <MenuItem value={"Yes"}>Yes</MenuItem>
+            <MenuItem value={"No"}>No</MenuItem>
+          </Select>
+        </FormControl>
       </td>
     );
     const rsvpPlusOneCheckbox = familyMember.hasPlusOne ? (
       <td className={styles.checkboxWithLabel}>
-        RSVP +1
-        <Checkbox
-          color="primary"
-          checked={this.state.rsvpdPlusOne}
-          onChange={this.handleChange_("rsvpdPlusOne")}
-        />
+        <FormControl className={styles.selector}>
+          <InputLabel htmlFor="rsvpdPlusOne">RSVP +1</InputLabel>
+          <Select
+            value={this.state.rsvpdPlusOne}
+            onChange={this.handleChange_("rsvpdPlusOne")}
+            inputProps={{
+              name: "rsvpdPlusOne",
+              id: "rsvpdPlusOne",
+            }}
+          >
+            <MenuItem value={""}></MenuItem>
+            <MenuItem value={"Yes"}>Yes</MenuItem>
+            <MenuItem value={"No"}>No</MenuItem>
+          </Select>
+        </FormControl>
       </td>
     ) : (
       <td className={styles.checkboxWithLabel}></td>
     );
     const needsHotelCheckbox = (
       <td className={styles.checkboxWithLabel}>
-        Need Hotel
-        <Checkbox
-          color="primary"
-          checked={this.state.needsHotel}
-          onChange={this.handleChange_("needsHotel")}
-        />
+        <FormControl className={styles.selector}>
+          <InputLabel htmlFor="needsHotel">Need Hotel</InputLabel>
+          <Select
+            value={this.state.needsHotel}
+            onChange={this.handleChange_("needsHotel")}
+            inputProps={{
+              name: "needsHotel",
+              id: "needsHotel",
+            }}
+          >
+            <MenuItem value={""}></MenuItem>
+            <MenuItem value={"Yes"}>Yes</MenuItem>
+            <MenuItem value={"No"}>No</MenuItem>
+          </Select>
+        </FormControl>
       </td>
     );
 

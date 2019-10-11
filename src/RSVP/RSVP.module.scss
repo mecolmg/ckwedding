@@ -78,5 +78,11 @@
 
   .checkboxWithLabel {
     flex: 1 1 0px;
+    padding: 0 4px;
+  }
+
+  .selector {
+    width: 100%;
+    text-align: left;
   }
 }
