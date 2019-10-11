@@ -75,14 +75,38 @@
   .familyMemberName {
     flex: 3 0 0px;
   }
+}
 
-  .checkboxWithLabel {
-    flex: 1 1 0px;
-    padding: 0 4px;
-  }
-
+.checkboxWithLabel {
+  flex: 1 1 0px;
+  padding: 0 8px;
   .selector {
     width: 100%;
     text-align: left;
+  }
+}
+
+.familyMemberFieldsMobile {
+  display: none;
+  padding-bottom: 16px;
+  // border-bottom: 1px solid $primary;
+}
+
+@media #{$screen-tablet} {
+  .selector .selectorLabel {
+    font-size: 0.8em;
+  }
+  .familyMemberFieldsMobile {
+    display: flex;
+    justify-content: center;
+  }
+  .familyMember .checkboxWithLabel {
+    display: none;
+  }
+  .checkboxWithLabel {
+    flex: 0 0 27%;
+  }
+  .checkboxWithLabel:empty {
+    display: none;
   }
 }

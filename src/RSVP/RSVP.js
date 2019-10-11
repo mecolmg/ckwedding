@@ -367,7 +367,9 @@ class FamilyMember extends PureComponent {
     const rsvpCheckbox = (
       <td className={styles.checkboxWithLabel}>
         <FormControl className={styles.selector}>
-          <InputLabel htmlFor="rsvpd">RSVP</InputLabel>
+          <InputLabel htmlFor="rsvpd" className={styles.selectorLabel}>
+            RSVP
+          </InputLabel>
           <Select
             value={this.state.rsvpd}
             onChange={this.handleChange_("rsvpd")}
@@ -386,7 +388,9 @@ class FamilyMember extends PureComponent {
     const rsvpPlusOneCheckbox = familyMember.hasPlusOne ? (
       <td className={styles.checkboxWithLabel}>
         <FormControl className={styles.selector}>
-          <InputLabel htmlFor="rsvpdPlusOne">RSVP +1</InputLabel>
+          <InputLabel htmlFor="rsvpdPlusOne" className={styles.selectorLabel}>
+            RSVP +1
+          </InputLabel>
           <Select
             value={this.state.rsvpdPlusOne}
             onChange={this.handleChange_("rsvpdPlusOne")}
@@ -407,7 +411,9 @@ class FamilyMember extends PureComponent {
     const needsHotelCheckbox = (
       <td className={styles.checkboxWithLabel}>
         <FormControl className={styles.selector}>
-          <InputLabel htmlFor="needsHotel">Need Hotel</InputLabel>
+          <InputLabel htmlFor="needsHotel" className={styles.selectorLabel}>
+            Need Hotel
+          </InputLabel>
           <Select
             value={this.state.needsHotel}
             onChange={this.handleChange_("needsHotel")}
@@ -425,14 +431,21 @@ class FamilyMember extends PureComponent {
     );
 
     return (
-      <tr className={styles.familyMember}>
-        <td className={styles.familyMemberName}>
-          {familyMember.firstName} {familyMember.lastName}
-        </td>
-        {rsvpCheckbox}
-        {rsvpPlusOneCheckbox}
-        {needsHotelCheckbox}
-      </tr>
+      <>
+        <tr className={styles.familyMember}>
+          <td className={styles.familyMemberName}>
+            {familyMember.firstName} {familyMember.lastName}
+          </td>
+          {rsvpCheckbox}
+          {needsHotelCheckbox}
+          {rsvpPlusOneCheckbox}
+        </tr>
+        <tr className={styles.familyMemberFieldsMobile}>
+          {rsvpCheckbox}
+          {rsvpPlusOneCheckbox}
+          {needsHotelCheckbox}
+        </tr>
+      </>
     );
   }
 }
