@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import HomeView from "./HomeView/HomeView";
+import HotelsInfoView from "./HotelsInfoView/HotelsInfoView";
 import PhotosView from "./PhotoView/PhotoView";
 import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -27,12 +28,14 @@ const theme = createMuiTheme({
 
 const Home = () => <HomeView />;
 const Photos = () => <PhotosView />;
+const HotelsInfo = () => <HotelsInfoView />;
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <Router>
       <Home path="/" />
       <Photos path="/photos" />
+      <HotelsInfo path="/hotels" />
     </Router>
   </ThemeProvider>,
   document.getElementById("root"),

@@ -2,9 +2,11 @@ import React from "react";
 import styles from "./WeddingInfo.module.scss";
 import Countdown from "react-countdown-now";
 
-function WeddingInfo() {
+function WeddingInfo(props) {
+  const classNames =
+    styles.weddingInfo + (props.className ? ` ${props.className}` : "");
   return (
-    <div className={styles.weddingInfo + " card"}>
+    <div className={classNames}>
       <h1 className={styles.title}>The Wedding</h1>
       <div className={styles.countdown}>
         ~ <Countdown date="Sat, 26 Sep 2020" renderer={props => props.days} />{" "}

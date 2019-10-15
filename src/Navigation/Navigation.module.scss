@@ -1,14 +1,14 @@
 // Module styles for Navigation component.
+@import "index";
 
 .navigation {
-  margin-bottom: -24px;
+  @extend .card;
 }
 
 .menu {
   display: flex;
   justify-content: center;
   margin: 16px 24px;
-  display: none; /* Remove once view navigation enabled. */
 }
 
 .menuItem {
