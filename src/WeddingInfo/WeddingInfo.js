@@ -18,7 +18,7 @@ function WeddingInfo(props) {
           <p>TBD</p>
         </div>
         <div className={styles.event}>
-          <h2>The Reception</h2>
+          <h2>Ceremony & Reception</h2>
           <div>
             <p>
               <a

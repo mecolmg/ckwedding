@@ -55,6 +55,7 @@ export function HotelsInfo(props) {
         open={comfortSuitesDialogOpen}
         maxWidth="md"
         fullScreen={fullScreen}
+        onClose={() => setComfortSuitesDialogOpen(false)}
       >
         <DialogTitle>Comfort Suites</DialogTitle>
         <DialogContent>
@@ -92,7 +93,8 @@ export function HotelsInfo(props) {
             <p>
               <b>Rental Cars</b> - If you'd prefer a little more freedom, you
               can rent a car from Enterprise Rental Car in Leeseburg for a
-              discounted rate. The rate code is <b>L16V68G / COM</b>. Call
+              discounted rate. The rate code is{" "}
+              <b className={styles.rateCode}>L16V68G / COM</b>. Call
               703-777-5800 to book.
             </p>
             <h2>How to Book</h2>
@@ -116,7 +118,12 @@ export function HotelsInfo(props) {
           </Button>
         </DialogActions>
       </Dialog>
-      <Dialog open={marriottDialogOpen} maxWidth="md" fullScreen={fullScreen}>
+      <Dialog
+        open={marriottDialogOpen}
+        maxWidth="md"
+        fullScreen={fullScreen}
+        onClose={() => setMarriottDialogOpen(false)}
+      >
         <DialogTitle>Marriott - SpringHill Suites</DialogTitle>
         <DialogContent>
           <DialogContentText>

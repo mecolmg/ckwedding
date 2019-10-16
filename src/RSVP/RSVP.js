@@ -37,9 +37,10 @@ class RSVP extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      warnDialogOpen: false,
       confirmDialogOpen: false,
+      name: "",
+      thankYouDialogOpen: false,
+      warnDialogOpen: false,
     };
     this.fetchAttendees_();
   }
@@ -77,7 +78,7 @@ class RSVP extends PureComponent {
           useQuerystring: true,
         });
       });
-    this.setState({ initialData: data });
+    this.setState({ initialData: data, thankYouDialogOpen: true });
   };
 
   getDiff_ = () => {
@@ -302,6 +303,22 @@ class RSVP extends PureComponent {
                 Continue
               </Button>
             </DialogActions>
+          </Dialog>
+          <Dialog
+            open={this.state.thankYouDialogOpen}
+            onClose={() => this.setState({ thankYouDialogOpen: false })}
+          >
+            <DialogTitle>Responses Submitted</DialogTitle>
+            <DialogContent>
+              <DialogContentText>Thank You!</DialogContentText>
+            </DialogContent>
+            <Button
+              onClick={() => this.setState({ thankYouDialogOpen: false })}
+              color="primary"
+              autoFocus
+            >
+              Close
+            </Button>
           </Dialog>
         </div>
       </div>
