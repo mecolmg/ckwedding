@@ -8,12 +8,13 @@ import WeddingInfo from "WeddingInfo/WeddingInfo";
 import styles from "./HomeView.module.scss";
 
 function HomeView() {
+  const rsvpRef = React.createRef();
   return (
     <div>
       <Navigation className={styles.navigation} />
-      <Splash />
+      <Splash rsvpRef={rsvpRef} />
       <WeddingInfo className={styles.weddingInfo} />
-      <RSVP />
+      <RSVP rsvpRef={rsvpRef} />
       <Gallery />
       <Footer />
     </div>

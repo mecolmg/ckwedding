@@ -214,7 +214,7 @@ class RSVP extends PureComponent {
 
   render() {
     return (
-      <div id="rsvpSection" className={styles.rsvp}>
+      <div id="rsvpSection" ref={this.props.rsvpRef} className={styles.rsvp}>
         <div className={styles.content}>
           <h1 className={styles.title}>Save-the-Date RSVP</h1>
           <p className={styles.saveTheDateNotice}>

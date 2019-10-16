@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Navigation.module.scss";
+import { NavLink } from "react-router-dom";
 
 function Navigation(props) {
   const classNames =
@@ -12,15 +13,28 @@ function Navigation(props) {
         <span className={styles.nowrap}>Bluemont, VA</span>
       </h3>
       <div className={styles.menu}>
-        <a href="/" className={styles.menuItem}>
+        <NavLink
+          exact
+          to="/"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
           Home
-        </a>
-        <a href="/hotels" className={styles.menuItem}>
+        </NavLink>
+        <NavLink
+          to="/hotels"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
           Hotel Info
-        </a>
-        <a href="/photos" className={styles.menuItem}>
+        </NavLink>
+        <NavLink
+          to="/photos"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
           Gallery
-        </a>
+        </NavLink>
       </div>
     </div>
   );
