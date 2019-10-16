@@ -7,9 +7,16 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import Paper from "@material-ui/core/Paper";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import styles from "./HotelsInfo.module.scss";
+import mapStyles from "./map_styles.json";
+import { compose, lifecycle, withProps } from "recompose";
 import { useTheme } from "@material-ui/core/styles";
+import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
+import MarkerWithLabel from "react-google-maps/lib/components/addons/MarkerWithLabel";
+
+const MAPS_API_KEY = "AIzaSyDGOgMb65UUKxKAUrm4tZNYJNPa5Dqxbf8";
 
 export function Splash() {
   return <div className={styles.splash}></div>;
@@ -29,17 +36,17 @@ export function HotelsInfo(props) {
       <div className={styles.hotelsContainer}>
         <Hotel
           name="Comfort Suites"
-          address={"20065 Lakeview Center Plaza\nAshburn, Virginia 20147"}
+          address={"80 Prosperity Ave\nLeesburg, VA, 20175"}
+          mapsLink="https://goo.gl/maps/KKAgCeakvqvwo8Uf8"
           link="https://www.marriott.com/events/start.mi?id=1570632297188&key=GRP"
-          mapsLink="https://goo.gl/maps/YWEChCQBNbNHP1GQ7"
           logo={ComfortSuitesLogo}
           viewMoreAction={() => setComfortSuitesDialogOpen(true)}
         />
         <Hotel
           name="Marriott - SpringHill Suites"
-          address={"80 Prosperity Ave\nLeesburg, VA, 20175"}
+          address={"20065 Lakeview Center Plaza\nAshburn, Virginia 20147"}
+          mapsLink="https://goo.gl/maps/YWEChCQBNbNHP1GQ7"
           link="https://www.choicehotels.com/reservations/groups/IA67G8"
-          mapsLink="https://goo.gl/maps/KKAgCeakvqvwo8Uf8"
           logo={MarriottLogo}
           viewMoreAction={() => setMarriottDialogOpen(true)}
         />
@@ -203,5 +210,94 @@ function Hotel(props) {
     </div>
   );
 }
+
+export const HotelsAndHousesMap = compose(
+  withProps({
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${MAPS_API_KEY}`,
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `400px` }} />,
+    mapElement: <div style={{ height: `100%` }} />,
+  }),
+  withScriptjs,
+  lifecycle({
+    componentWillMount() {
+      const refs = {};
+      const markers = [
+        {
+          name: "Whitehall Estate",
+          position: { lat: 39.1118773, lng: -77.8251408 },
+          link: "https://goo.gl/maps/XG5LsDTdDt3V7wM49",
+        },
+        {
+          name: "The Gallaghers' House",
+          position: { lat: 39.0168022, lng: -77.503797 },
+          link: "https://goo.gl/maps/ZPRGbeqaTYG2yHRR9",
+        },
+        {
+          name: "The Salvatores' House",
+          position: { lat: 39.0585488, lng: -77.4752764 },
+          link: "https://goo.gl/maps/oUUsEfGoT6GZGp8z8",
+        },
+        {
+          name: "Comfort Suites",
+          position: { lat: 39.104933, lng: -77.548374 },
+          link: "https://goo.gl/maps/zYoyV7xnGgSj76WG6",
+        },
+        {
+          name: "Marriott - SpringHill Suites",
+          position: { lat: 39.0608259, lng: -77.4528328 },
+          link: "https://goo.gl/maps/YWEChCQBNbNHP1GQ7",
+        },
+      ];
+      const bounds = new window.google.maps.LatLngBounds();
+      markers.forEach(marker => {
+        bounds.extend(marker.position);
+      });
+
+      this.setState({
+        bounds,
+        center: bounds.getCenter(),
+        markers,
+        onMapMounted: ref => {
+          refs.map = ref;
+          if (refs.map) {
+            refs.map.fitBounds(bounds);
+            this.setState({ zoom: refs.map.getZoom() - 1 });
+          }
+        },
+        zoom: 11,
+      });
+    },
+  }),
+  withGoogleMap,
+)(props => {
+  const markers = props.markers.map((marker, index) => {
+    return (
+      <MarkerWithLabel
+        key={index}
+        position={marker.position}
+        labelAnchor={new window.google.maps.Point(0, 0)}
+        labelClass={styles.markerLabel}
+        onClick={() => window.open(marker.link)}
+        zIndex={marker.zIndex}
+      >
+        <Paper className={styles.markerLabelContent}>{marker.name}</Paper>
+      </MarkerWithLabel>
+    );
+  });
+
+  return (
+    <GoogleMap
+      ref={props.onMapMounted}
+      zoom={props.zoom}
+      center={props.center}
+      defaultOptions={{
+        styles: mapStyles,
+      }}
+    >
+      {markers}
+    </GoogleMap>
+  );
+});
 
 export default HotelsInfo;

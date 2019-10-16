@@ -37,3 +37,16 @@ $splash-image: url("images/ComfortSuites.png");
     }
   }
 }
+
+.markerLabel {
+  overflow: visible !important;
+
+  .markerLabelContent {
+    position: relative;
+    left: -50%;
+    top: -75px;
+    background-color: white;
+    border-radius: 4px;
+    padding: 8px;
+  }
+}
