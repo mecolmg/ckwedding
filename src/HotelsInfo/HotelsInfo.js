@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ComfortSuitesLogo from "./images/ComfortSuitesLogo.png";
+// import ComfortSuitesLogo from "./images/ComfortSuitesLogo.png";
 import MarriottLogo from "./images/MarriottLogo.png";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -34,19 +34,19 @@ export function HotelsInfo(props) {
     <div className={classNames}>
       <h1 className={styles.title}>Hotels Info</h1>
       <div className={styles.hotelsContainer}>
-        <Hotel
+        {/*<Hotel
           name="Comfort Suites"
           address={"80 Prosperity Ave\nLeesburg, VA, 20175"}
           mapsLink="https://goo.gl/maps/KKAgCeakvqvwo8Uf8"
-          link="https://www.marriott.com/events/start.mi?id=1570632297188&key=GRP"
+          link="https://www.choicehotels.com/reservations/groups/IA67G8"
           logo={ComfortSuitesLogo}
           viewMoreAction={() => setComfortSuitesDialogOpen(true)}
-        />
+        />*/}
         <Hotel
           name="Marriott - SpringHill Suites"
           address={"20065 Lakeview Center Plaza\nAshburn, Virginia 20147"}
           mapsLink="https://goo.gl/maps/YWEChCQBNbNHP1GQ7"
-          link="https://www.choicehotels.com/reservations/groups/IA67G8"
+          link="https://www.marriott.com/events/start.mi?id=1570632297188&key=GRP"
           logo={MarriottLogo}
           viewMoreAction={() => setMarriottDialogOpen(true)}
         />
@@ -157,7 +157,11 @@ export function HotelsInfo(props) {
               The last day to book is August 28th, 2020. To book your room, you
               can call the hotel directly at 703-723-9300 and ask for the
               Salvatore-Gallagher Wedding room block. You can also{" "}
-              <a href="https://www.marriott.com/events/start.mi?id=1570632297188&key=GRP">
+              <a
+                href="https://www.marriott.com/events/start.mi?id=1570632297188&key=GRP"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 book now online
               </a>
               .
@@ -245,11 +249,11 @@ export const HotelsAndHousesMap = compose(
           position: { lat: 39.0585488, lng: -77.4752764 },
           link: "https://goo.gl/maps/oUUsEfGoT6GZGp8z8",
         },
-        {
-          name: "Comfort Suites",
-          position: { lat: 39.104933, lng: -77.548374 },
-          link: "https://goo.gl/maps/zYoyV7xnGgSj76WG6",
-        },
+        // {
+        //   name: "Comfort Suites",
+        //   position: { lat: 39.104933, lng: -77.548374 },
+        //   link: "https://goo.gl/maps/zYoyV7xnGgSj76WG6",
+        // },
         {
           name: "Marriott - SpringHill Suites",
           position: { lat: 39.0608259, lng: -77.4528328 },
