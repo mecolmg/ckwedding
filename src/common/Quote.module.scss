@@ -1,0 +1,15 @@
+// Module styles for common quote component.
+@import "devices";
+
+.quote {
+  border-left: 2px solid #eee;
+  font-style: italic;
+  margin: 0 16px;
+  padding: 0 16px;
+}
+
+@media #{$screen-mobile} {
+  .quote {
+    margin: 0;
+  }
+}

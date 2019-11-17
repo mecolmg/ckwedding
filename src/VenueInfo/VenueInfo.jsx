@@ -1,4 +1,5 @@
 import React from "react";
+import Quote from "common/Quote.jsx";
 import styles from "./VenueInfo.module.scss";
 
 function VenueInfo() {
@@ -76,12 +77,12 @@ function VenueInfo() {
         town.
       </p>
       <p>
-        Throughout the 20th Century, Whitehall Farm was one of the largest dairy
-        farms in this part of the State. From 1919 to 1956, the farm was owned
-        by the McComb family and they had some of the best registered Holstein
-        cattle in the state. From 1956 until 1992, Whitehall was the home of
-        James and Zora Brownell who raised a family of four boys and one girl on
-        the dairy farm and were well known throughout the area.
+        Throughout the 20<sup>th</sup> Century, Whitehall Farm was one of the
+        largest dairy farms in this part of the State. From 1919 to 1956, the
+        farm was owned by the McComb family and they had some of the best
+        registered Holstein cattle in the state. From 1956 until 1992, Whitehall
+        was the home of James and Zora Brownell who raised a family of four boys
+        and one girl on the dairy farm and were well known throughout the area.
       </p>
       <p>
         The dairy farm operations ended with the Brownell's in 1992 and
@@ -102,10 +103,6 @@ function VenueInfo() {
       </a>
     </div>
   );
-}
-
-function Quote(props) {
-  return <div className={styles.quote}>{props.children}</div>;
 }
 
 export default VenueInfo;
