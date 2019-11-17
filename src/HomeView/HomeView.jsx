@@ -1,10 +1,10 @@
 import React from "react";
-import Footer from "Footer/Footer";
-import Gallery from "Gallery/Gallery";
-import Navigation from "Navigation/Navigation";
-import RSVP from "RSVP/RSVP";
-import Splash from "Splash/Splash";
-import WeddingInfo from "WeddingInfo/WeddingInfo";
+import Footer from "Footer/Footer.jsx";
+import Gallery from "Gallery/Gallery.jsx";
+import Navigation from "Navigation/Navigation.jsx";
+import RSVP from "RSVP/RSVP.jsx";
+import Splash from "Splash/Splash.jsx";
+import WeddingInfo from "WeddingInfo/WeddingInfo.jsx";
 import styles from "./HomeView.module.scss";
 
 function HomeView() {

@@ -8,7 +8,6 @@ import PhotosView from "./PhotoView/PhotoView";
 import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-// import { Router } from "@reach/router";
 import { HashRouter, Route } from "react-router-dom";
 
 const theme = createMuiTheme({
@@ -27,10 +26,6 @@ const theme = createMuiTheme({
     },
   },
 });
-
-// const Home = () => <HomeView />;
-// const Photos = () => <PhotosView />;
-// const HotelsInfo = () => <HotelsInfoView />;
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
