@@ -22,6 +22,13 @@ function Navigation(props) {
           Home
         </NavLink>
         <NavLink
+          to="/venue"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
+          About Venue
+        </NavLink>
+        <NavLink
           to="/hotels"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}

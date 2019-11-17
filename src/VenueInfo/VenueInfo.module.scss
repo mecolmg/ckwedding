@@ -1,0 +1,22 @@
+// Module styles for the VenueInfo component.
+@import "index";
+
+.venueInfo {
+  @extend .card;
+  text-align: left;
+  padding: 16px 32px;
+}
+
+.title {
+  margin-top: 0;
+  text-align: center;
+}
+
+.quote {
+  @extend .quote;
+}
+
+.sourceLink {
+  display: block;
+  text-align: right;
+}
