@@ -4,6 +4,7 @@ import "./index.scss";
 import HomeView from "./HomeView/HomeView";
 import HotelsInfoView from "./HotelsInfoView/HotelsInfoView";
 import VenueInfoView from "./VenueInfoView/VenueInfoView";
+import CovidInfoView from "./CovidInfoView/CovidInfoView";
 import PhotosView from "./PhotoView/PhotoView";
 import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -31,6 +32,7 @@ ReactDOM.render(
   <ThemeProvider theme={theme}>
     <HashRouter basename="/">
       <Route exact path="/" component={HomeView} />
+      <Route path="/covid" component={CovidInfoView} />
       <Route path="/venue" component={VenueInfoView} />
       <Route path="/photos" component={PhotosView} />
       <Route path="/hotels" component={HotelsInfoView} />

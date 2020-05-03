@@ -1,0 +1,24 @@
+// Module styles for the CovidInfo component.
+@import "index";
+
+.covidInfo {
+  @extend .card;
+  text-align: center;
+  p {
+    margin-left: 48px;
+    margin-right: 48px;
+    &.signature {
+      text-align: right;
+    }
+  }
+}
+
+.title {
+  margin-top: 0;
+  text-align: center;
+}
+
+.sourceLink {
+  display: block;
+  text-align: right;
+}
