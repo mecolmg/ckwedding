@@ -6,6 +6,7 @@ import HotelsInfoView from './HotelsInfoView/HotelsInfoView';
 import VenueInfoView from './VenueInfoView/VenueInfoView';
 import CovidInfoView from './CovidInfoView/CovidInfoView';
 import PhotosView from './PhotoView/PhotoView';
+import RsvpView from './RsvpView/RsvpView';
 import * as serviceWorker from './serviceWorker';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
@@ -36,6 +37,7 @@ ReactDOM.render(
       <Route path="/venue" component={VenueInfoView} />
       <Route path="/photos" component={PhotosView} />
       <Route path="/hotels" component={HotelsInfoView} />
+      <Route path="/rsvp" component={RsvpView} />
     </HashRouter>
   </ThemeProvider>,
   document.getElementById('root')
