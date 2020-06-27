@@ -13,12 +13,10 @@
     "@types/react-dom": "^16.9.0",
     "dataframe-js": "^1.4.3",
     "debounce": "^1.2.0",
-    "eslint": "^6.3.0",
     "gh-pages": "^2.1.1",
     "lodash.debounce": "^4.0.8",
     "material-shadows": "^3.0.1",
     "node-sass": "^4.12.0",
-    "prettier": "^1.18.2",
     "react": "^16.9.0",
     "react-countdown-now": "^2.1.1",
     "react-device-detect": "^1.9.10",
@@ -26,11 +24,19 @@
     "react-google-maps": "^9.4.5",
     "react-image-gallery": "^0.9.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.1",
+    "react-scripts": "3.4.1",
     "react-scroll-to": "^3.0.0-beta.2",
     "recompose": "^0.30.0",
     "request": "^2.88.0",
     "typescript": "^3.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^1.18.2"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -41,7 +47,30 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "plugin:react/recommended",
+      "plugin:prettier/recommended",
+      "prettier",
+      "prettier/react"
+    ],
+    "plugins": [
+      "react",
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "bracketSpacing": false,
+          "singleQuote": true,
+          "trailingComma": "es5"
+        }
+      ]
+    },
+    "parserOptions": {
+      "ecmaVersion": "2015",
+      "sourceType": "module"
+    }
   },
   "browserslist": {
     "production": [
