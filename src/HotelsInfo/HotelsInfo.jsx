@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
 // import ComfortSuitesLogo from "./images/ComfortSuitesLogo.png";
-import MarriottLogo from "./images/MarriottLogo.png";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Paper from "@material-ui/core/Paper";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import styles from "./HotelsInfo.module.scss";
-import mapStyles from "./map_styles.json";
-import { compose, lifecycle, withProps } from "recompose";
-import { useTheme } from "@material-ui/core/styles";
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
-import MarkerWithLabel from "react-google-maps/lib/components/addons/MarkerWithLabel";
+import MarriottLogo from './images/MarriottLogo.png';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Paper from '@material-ui/core/Paper';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import styles from './HotelsInfo.module.scss';
+import mapStyles from './map_styles.json';
+import {compose, lifecycle, withProps} from 'recompose';
+import {useTheme} from '@material-ui/core/styles';
+import {withScriptjs, withGoogleMap, GoogleMap} from 'react-google-maps';
+import MarkerWithLabel from 'react-google-maps/lib/components/addons/MarkerWithLabel';
 
-const MAPS_API_KEY = "AIzaSyDGOgMb65UUKxKAUrm4tZNYJNPa5Dqxbf8";
+const MAPS_API_KEY = 'AIzaSyDGOgMb65UUKxKAUrm4tZNYJNPa5Dqxbf8';
 
 export function Splash() {
   return <div className={styles.splash}></div>;
@@ -26,10 +26,10 @@ export function HotelsInfo(props) {
   const [marriottDialogOpen, setMarriottDialogOpen] = useState(false);
   const [comfortSuitesDialogOpen, setComfortSuitesDialogOpen] = useState(false);
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   const classNames =
-    styles.hotelsInfo + (props.className ? ` ${props.className}` : "");
+    styles.hotelsInfo + (props.className ? ` ${props.className}` : '');
   return (
     <div className={classNames}>
       <h1 className={styles.title}>Hotels Info</h1>
@@ -44,7 +44,7 @@ export function HotelsInfo(props) {
         />*/}
         <Hotel
           name="Marriott - SpringHill Suites"
-          address={"20065 Lakeview Center Plaza\nAshburn, Virginia 20147"}
+          address={'20065 Lakeview Center Plaza\nAshburn, Virginia 20147'}
           mapsLink="https://goo.gl/maps/YWEChCQBNbNHP1GQ7"
           link="https://www.marriott.com/events/start.mi?id=1570632297188&key=GRP"
           logo={MarriottLogo}
@@ -65,8 +65,8 @@ export function HotelsInfo(props) {
               <b>King Studio Suites</b> - One king bed and a pull out sleeper
               sofa, mini refrigerator, microwave, and coffee maker.
               <br />
-              Arrival on September 25th, 2020 and departure on September 27th,
-              2020
+              Arrival on September 25<sup>th</sup>, 2020 and departure on
+              September 27<sup>th</sup>, 2020
               <br />
               $135 per night plus tax
             </p>
@@ -74,8 +74,8 @@ export function HotelsInfo(props) {
               <b>Queen Studio Suites</b> - Two queen beds and a pull out sleeper
               sofa, mini refrigerator, microwave and coffee maker.
               <br />
-              Arrival on September 25th, 2020 and departure on September 27th,
-              2020
+              Arrival on September 25<sup>th</sup>, 2020 and departure on
+              September 27<sup>th</sup>, 2020
               <br />
               $135 per night plus tax
             </p>
@@ -91,16 +91,16 @@ export function HotelsInfo(props) {
               with 10 guaranteed rooms.
             </p>
             <p>
-              <b>Rental Cars</b> - If you'd prefer a little more freedom, you
-              can rent a car from Enterprise Rental Car in Leeseburg for a
-              discounted rate. The rate code is{" "}
+              <b>Rental Cars</b> - If you&apos;d prefer a little more freedom,
+              you can rent a car from Enterprise Rental Car in Leeseburg for a
+              discounted rate. The rate code is{' '}
               <b className={styles.rateCode}>L16V68G / COM</b>. Call
               703-777-5800 to book.
             </p>
             <h2>How to Book</h2>
             <p>
               To book your room, you can call the hotel directly at 703-669-1650
-              and ask for the Salvatore Wedding room block. You can also{" "}
+              and ask for the Salvatore Wedding room block. You can also{' '}
               <a href="https://www.choicehotels.com/reservations/groups/IA67G8">
                 book now online
               </a>
@@ -132,7 +132,8 @@ export function HotelsInfo(props) {
               <b>King Suite</b> - One king bed and a trundle bed, mini
               refrigerator, microwave, and coffee maker.
               <br />
-              Starts on September 24th, 2020 and ends on September 28th, 2020
+              Starts on September 24<sup>th</sup>, 2020 and ends on September 28
+              <sup>th</sup>, 2020
               <br />
               $129 per night plus tax
             </p>
@@ -140,7 +141,8 @@ export function HotelsInfo(props) {
               <b>Queen Suite</b> - Two queen beds and a trundle bed, mini
               refrigerator, microwave, and coffee maker.
               <br />
-              Starts on September 24th, 2020 and ends on September 28th, 2020
+              Starts on September 24<sup>th</sup>, 2020 and ends on September 28
+              <sup>th</sup>, 2020
               <br />
               $149 per night plus tax
             </p>
@@ -154,9 +156,9 @@ export function HotelsInfo(props) {
             </p>
             <h2>How to Book</h2>
             <p>
-              The last day to book is August 28th, 2020. To book your room, you
-              can call the hotel directly at 703-723-9300 and ask for the
-              Salvatore-Gallagher Wedding room block. You can also{" "}
+              The last day to book is August 28<sup>th</sup>, 2020. To book your
+              room, you can call the hotel directly at 703-723-9300 and ask for
+              the Salvatore-Gallagher Wedding room block. You can also{' '}
               <a
                 href="https://www.marriott.com/events/start.mi?id=1570632297188&key=GRP"
                 target="_blank"
@@ -195,8 +197,8 @@ function Hotel(props) {
       <p>{props.name}</p>
       <a href={props.mapsLink} target="_blank" rel="noopener noreferrer">
         <div>
-          {props.address.split("\n").map(x => (
-            <div>{x}</div>
+          {props.address.split('\n').map((x, index) => (
+            <div key={index}>{x}</div>
           ))}
         </div>
       </a>
@@ -225,9 +227,9 @@ function Hotel(props) {
 export const HotelsAndHousesMap = compose(
   withProps({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${MAPS_API_KEY}`,
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
-    mapElement: <div style={{ height: `100%` }} />,
+    loadingElement: <div style={{height: `100%`}} />,
+    containerElement: <div style={{height: `400px`}} />,
+    mapElement: <div style={{height: `100%`}} />,
   }),
   withScriptjs,
   lifecycle({
@@ -235,19 +237,19 @@ export const HotelsAndHousesMap = compose(
       const refs = {};
       const markers = [
         {
-          name: "Whitehall Estate",
-          position: { lat: 39.1118773, lng: -77.8251408 },
-          link: "https://goo.gl/maps/XG5LsDTdDt3V7wM49",
+          name: 'Whitehall Estate',
+          position: {lat: 39.1118773, lng: -77.8251408},
+          link: 'https://goo.gl/maps/XG5LsDTdDt3V7wM49',
         },
         {
           name: "The Gallaghers' House",
-          position: { lat: 39.0168022, lng: -77.503797 },
-          link: "https://goo.gl/maps/ZPRGbeqaTYG2yHRR9",
+          position: {lat: 39.0168022, lng: -77.503797},
+          link: 'https://goo.gl/maps/ZPRGbeqaTYG2yHRR9',
         },
         {
           name: "The Salvatores' House",
-          position: { lat: 39.0585488, lng: -77.4752764 },
-          link: "https://goo.gl/maps/oUUsEfGoT6GZGp8z8",
+          position: {lat: 39.0585488, lng: -77.4752764},
+          link: 'https://goo.gl/maps/oUUsEfGoT6GZGp8z8',
         },
         // {
         //   name: "Comfort Suites",
@@ -255,13 +257,13 @@ export const HotelsAndHousesMap = compose(
         //   link: "https://goo.gl/maps/zYoyV7xnGgSj76WG6",
         // },
         {
-          name: "Marriott - SpringHill Suites",
-          position: { lat: 39.0608259, lng: -77.4528328 },
-          link: "https://goo.gl/maps/YWEChCQBNbNHP1GQ7",
+          name: 'Marriott - SpringHill Suites',
+          position: {lat: 39.0608259, lng: -77.4528328},
+          link: 'https://goo.gl/maps/YWEChCQBNbNHP1GQ7',
         },
       ];
       const bounds = new window.google.maps.LatLngBounds();
-      markers.forEach(marker => {
+      markers.forEach((marker) => {
         bounds.extend(marker.position);
       });
 
@@ -269,19 +271,19 @@ export const HotelsAndHousesMap = compose(
         bounds,
         center: bounds.getCenter(),
         markers,
-        onMapMounted: ref => {
+        onMapMounted: (ref) => {
           refs.map = ref;
           if (refs.map) {
             refs.map.fitBounds(bounds);
-            this.setState({ zoom: refs.map.getZoom() - 1 });
+            this.setState({zoom: refs.map.getZoom() - 1});
           }
         },
         zoom: 11,
       });
     },
   }),
-  withGoogleMap,
-)(props => {
+  withGoogleMap
+)((props) => {
   const markers = props.markers.map((marker, index) => {
     return (
       <MarkerWithLabel

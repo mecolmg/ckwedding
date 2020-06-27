@@ -1,25 +1,25 @@
-import React, { PureComponent } from "react";
-import DataFrame from "dataframe-js";
-import styles from "./RSVP.module.scss";
-import request from "request";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import SendIcon from "@material-ui/icons/Send";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import React, {PureComponent} from 'react';
+import DataFrame from 'dataframe-js';
+import styles from './RSVP.module.scss';
+import request from 'request';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import SendIcon from '@material-ui/icons/Send';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 // Google Script URLs.
 const GET_ATTENDEES_URL = `https://script.google.com/macros/s/AKfycbyky0PZkAOw2WUT5mzhwabPyWk5j_AUUj3cWuIM/exec`;
 const POST_ATTENDEES_URL = `https://script.google.com/macros/s/AKfycbx7RkLwAfmzKZPsQpbmUfCooykkDg5MOZVsXk1oNQ/exec`;
 
 // Email constants.
-const EMAIL = "katelyn.and.colm@gmail.com";
+const EMAIL = 'katelyn.and.colm@gmail.com';
 const EMAIL_SUBJECT = "Hey I'd like to be at your wedding too!";
 const EMAIL_BODY = encodeURIComponent(`Hi Colm and Katie,
 
@@ -38,7 +38,7 @@ class RSVP extends PureComponent {
     super(props);
     this.state = {
       confirmDialogOpen: false,
-      name: "",
+      name: '',
       thankYouDialogOpen: false,
       warnDialogOpen: false,
     };
@@ -50,9 +50,9 @@ class RSVP extends PureComponent {
       const responseData = JSON.parse(response.body);
       const data = new DataFrame(
         responseData.rows,
-        responseData.headers,
-      ).withColumn("fullNameLower", row =>
-        `${row.get("firstName")} ${row.get("lastName")}`.toLowerCase(),
+        responseData.headers
+      ).withColumn('fullNameLower', (row) =>
+        `${row.get('firstName')} ${row.get('lastName')}`.toLowerCase()
       );
       this.setState({
         initialData: data,
@@ -62,11 +62,11 @@ class RSVP extends PureComponent {
   };
 
   postAttendees_ = () => {
-    const { data } = this.state;
+    const {data} = this.state;
     this.getDiff_()
       .toCollection()
-      .forEach(row => {
-        const { id, rsvpd, rsvpdPlusOne, needsHotel } = row;
+      .forEach((row) => {
+        const {id, rsvpd, rsvpdPlusOne, needsHotel} = row;
         request.get({
           url: POST_ATTENDEES_URL,
           qs: {
@@ -78,11 +78,11 @@ class RSVP extends PureComponent {
           useQuerystring: true,
         });
       });
-    this.setState({ initialData: data, thankYouDialogOpen: true });
+    this.setState({initialData: data, thankYouDialogOpen: true});
   };
 
   getDiff_ = () => {
-    const { data, initialData } = this.state;
+    const {data, initialData} = this.state;
     return data.filter((row, index) => {
       const {
         id,
@@ -90,8 +90,8 @@ class RSVP extends PureComponent {
         rsvpdPlusOne: newRsvpdPlusOne,
         needsHotel: newNeedsHotel,
       } = row.toDict();
-      const { rsvpd, rsvpdPlusOne, needsHotel } = initialData
-        .find(row => row.get("id") === id)
+      const {rsvpd, rsvpdPlusOne, needsHotel} = initialData
+        .find((row) => row.get('id') === id)
         .toDict();
       return (
         newRsvpd !== rsvpd ||
@@ -106,31 +106,31 @@ class RSVP extends PureComponent {
     return this.getDiff_().count() > 0;
   };
 
-  handleInputChange_ = e => {
-    const { checked, name, type, value } = e.target;
-    this.setState({ [name]: type === "checkbox" ? checked : value });
+  handleInputChange_ = (e) => {
+    const {checked, name, type, value} = e.target;
+    this.setState({[name]: type === 'checkbox' ? checked : value});
   };
 
-  handleChange_ = name => e => {
-    const { checked, type, value } = e.target;
-    this.setState({ [name]: type === "checkbox" ? checked : value });
+  handleChange_ = (name) => (e) => {
+    const {checked, type, value} = e.target;
+    this.setState({[name]: type === 'checkbox' ? checked : value});
   };
 
-  handleFamilyMemberChanged_ = familyMember => {
-    const { data } = this.state;
+  handleFamilyMemberChanged_ = (familyMember) => {
+    const {data} = this.state;
     const headers = data.listColumns();
     const rows = data
       .toCollection()
-      .map(row => (row.id === familyMember.id ? familyMember : row));
+      .map((row) => (row.id === familyMember.id ? familyMember : row));
     const newData = new DataFrame(rows, headers);
-    this.setState({ data: newData });
+    this.setState({data: newData});
   };
 
   handleSubmit_ = () => {
     const changedFamilyIds = new Set();
     this.getDiff_()
       .toCollection()
-      .forEach(change => changedFamilyIds.add(change.familyId));
+      .forEach((change) => changedFamilyIds.add(change.familyId));
     if (changedFamilyIds.size > 1) {
       this.openWarnDialog();
     } else {
@@ -139,47 +139,47 @@ class RSVP extends PureComponent {
   };
 
   openWarnDialog = () => {
-    this.setState({ warnDialogOpen: true });
+    this.setState({warnDialogOpen: true});
   };
 
   closeWarnDialog = () => {
-    this.setState({ warnDialogOpen: false });
+    this.setState({warnDialogOpen: false});
   };
 
   openConfirmDialog = () => {
-    this.setState({ confirmDialogOpen: true });
+    this.setState({confirmDialogOpen: true});
   };
 
-  closeConfirmDialog = submit => {
-    this.setState({ confirmDialogOpen: false });
+  closeConfirmDialog = (submit) => {
+    this.setState({confirmDialogOpen: false});
     if (submit) {
       this.postAttendees_();
     }
   };
 
-  rowHasName_ = familyMember => {
+  rowHasName_ = (familyMember) => {
     return familyMember
-      .get("fullNameLower")
+      .get('fullNameLower')
       .includes(this.state.name.toLowerCase());
   };
 
   renderFamilies_ = () => {
-    if (!this.state.data || this.state.name === "") {
+    if (!this.state.data || this.state.name === '') {
       return this.renderFormInstructions_();
     }
 
     const matchingFamilyIds = this.state.data
       .where(this.rowHasName_)
-      .distinct("familyId")
+      .distinct('familyId')
       .toCollection()
-      .map(row => row.familyId);
+      .map((row) => row.familyId);
 
     const families = this.state.data
-      .filter(row => matchingFamilyIds.includes(row.get("familyId")))
-      .groupBy("familyId", "familyName")
-      .aggregate(family => family)
+      .filter((row) => matchingFamilyIds.includes(row.get('familyId')))
+      .groupBy('familyId', 'familyName')
+      .aggregate((family) => family)
       .toCollection()
-      .map(family => (
+      .map((family) => (
         <Family
           key={family.familyId}
           family={family.aggregation.toCollection()}
@@ -203,7 +203,7 @@ class RSVP extends PureComponent {
       <div className={styles.formError}>
         <div>
           No results were found for that name. If you think we missed you, let
-          us know at{" "}
+          us know at{' '}
           <a href={EMAIL_HREF} target="_blank" rel="noopener noreferrer">
             {EMAIL}
           </a>
@@ -219,10 +219,10 @@ class RSVP extends PureComponent {
         <div className={styles.content}>
           <h1 className={styles.title}>Save-the-Date RSVP</h1>
           <p className={styles.saveTheDateNotice}>
-            This is not an official RSVP. We're using your responses here to get
-            an idea of how many guests are planning to attend. We're also using
-            this to estimate the number of hotel rooms needed for those guests
-            coming from out of town.
+            This is not an official RSVP. We&apos;re using your responses here
+            to get an idea of how many guests are planning to attend. We&apos;re
+            also using this to estimate the number of hotel rooms needed for
+            those guests coming from out of town.
           </p>
           <div className={styles.form}>
             <div className={styles.formHeader}>
@@ -230,7 +230,7 @@ class RSVP extends PureComponent {
                 label="Name"
                 className={styles.nameInput}
                 value={this.state.name}
-                onChange={this.handleChange_("name")}
+                onChange={this.handleChange_('name')}
                 margin="normal"
                 variant="outlined"
               />
@@ -274,10 +274,10 @@ class RSVP extends PureComponent {
             <DialogTitle>Are you ready to submit?</DialogTitle>
             <DialogContent>
               <DialogContentText>
-                You're about to submit your responses. These responses are not
-                official RSVP's, so don't worry if you change your mind later.
-                You can always update your response here and/or reach out to us
-                at{" "}
+                You&apos;re about to submit your responses. These responses are
+                not official RSVP&apos;s, so don&apos;t worry if you change your
+                mind later. You can always update your response here and/or
+                reach out to us at{' '}
                 <a
                   href={`mailto:${EMAIL}`}
                   target="_blank"
@@ -285,7 +285,7 @@ class RSVP extends PureComponent {
                 >
                   {EMAIL}
                 </a>
-                . {"\n\n"}Thank you for responding!
+                . {'\n\n'}Thank you for responding!
               </DialogContentText>
             </DialogContent>
             <DialogActions>
@@ -306,14 +306,14 @@ class RSVP extends PureComponent {
           </Dialog>
           <Dialog
             open={this.state.thankYouDialogOpen}
-            onClose={() => this.setState({ thankYouDialogOpen: false })}
+            onClose={() => this.setState({thankYouDialogOpen: false})}
           >
             <DialogTitle>Responses Submitted</DialogTitle>
             <DialogContent>
               <DialogContentText>Thank You!</DialogContentText>
             </DialogContent>
             <Button
-              onClick={() => this.setState({ thankYouDialogOpen: false })}
+              onClick={() => this.setState({thankYouDialogOpen: false})}
               color="primary"
               autoFocus
             >
@@ -328,8 +328,8 @@ class RSVP extends PureComponent {
 
 class Family extends PureComponent {
   renderFamilyMembers_ = () => {
-    const { family, onFamilyMemberChanged } = this.props;
-    return family.map(familyMember => (
+    const {family, onFamilyMemberChanged} = this.props;
+    return family.map((familyMember) => (
       <FamilyMember
         key={familyMember.id}
         familyMember={familyMember}
@@ -340,7 +340,7 @@ class Family extends PureComponent {
 
   render() {
     return (
-      <div className={styles.family}>
+      <div>
         <div className={styles.familyName}>{this.props.familyName}</div>
         <table className={styles.familyMembers}>
           <tbody>{this.renderFamilyMembers_()}</tbody>
@@ -353,7 +353,7 @@ class Family extends PureComponent {
 class FamilyMember extends PureComponent {
   constructor(props) {
     super(props);
-    const { familyMember } = props;
+    const {familyMember} = props;
     this.state = {
       rsvpd: familyMember.rsvpd,
       rsvpdPlusOne: familyMember.rsvpdPlusOne,
@@ -361,25 +361,25 @@ class FamilyMember extends PureComponent {
     };
   }
 
-  handleInputChange_ = e => {
+  handleInputChange_ = (e) => {
     this.handleChange_(e.target.name)(e);
   };
 
-  handleChange_ = name => e => {
-    const { checked, type, value } = e.target;
-    const { familyMember, onFamilyMemberChanged } = this.props;
-    this.setState({ [name]: type === "checkbox" ? checked : value }, newState =>
+  handleChange_ = (name) => (e) => {
+    const {checked, type, value} = e.target;
+    const {familyMember, onFamilyMemberChanged} = this.props;
+    this.setState({[name]: type === 'checkbox' ? checked : value}, (newState) =>
       onFamilyMemberChanged({
         ...familyMember,
         rsvpd: this.state.rsvpd,
         rsvpdPlusOne: this.state.rsvpdPlusOne,
         needsHotel: this.state.needsHotel,
-      }),
+      })
     );
   };
 
   render() {
-    const { familyMember } = this.props;
+    const {familyMember} = this.props;
 
     const rsvpCheckbox = (
       <td className={styles.checkboxWithLabel}>
@@ -389,15 +389,15 @@ class FamilyMember extends PureComponent {
           </InputLabel>
           <Select
             value={this.state.rsvpd}
-            onChange={this.handleChange_("rsvpd")}
+            onChange={this.handleChange_('rsvpd')}
             inputProps={{
-              name: "rsvpd",
-              id: "rsvpd",
+              name: 'rsvpd',
+              id: 'rsvpd',
             }}
           >
-            <MenuItem value={""}></MenuItem>
-            <MenuItem value={"Yes"}>Yes</MenuItem>
-            <MenuItem value={"No"}>No</MenuItem>
+            <MenuItem value={''}></MenuItem>
+            <MenuItem value={'Yes'}>Yes</MenuItem>
+            <MenuItem value={'No'}>No</MenuItem>
           </Select>
         </FormControl>
       </td>
@@ -410,15 +410,15 @@ class FamilyMember extends PureComponent {
           </InputLabel>
           <Select
             value={this.state.rsvpdPlusOne}
-            onChange={this.handleChange_("rsvpdPlusOne")}
+            onChange={this.handleChange_('rsvpdPlusOne')}
             inputProps={{
-              name: "rsvpdPlusOne",
-              id: "rsvpdPlusOne",
+              name: 'rsvpdPlusOne',
+              id: 'rsvpdPlusOne',
             }}
           >
-            <MenuItem value={""}></MenuItem>
-            <MenuItem value={"Yes"}>Yes</MenuItem>
-            <MenuItem value={"No"}>No</MenuItem>
+            <MenuItem value={''}></MenuItem>
+            <MenuItem value={'Yes'}>Yes</MenuItem>
+            <MenuItem value={'No'}>No</MenuItem>
           </Select>
         </FormControl>
       </td>
@@ -433,15 +433,15 @@ class FamilyMember extends PureComponent {
           </InputLabel>
           <Select
             value={this.state.needsHotel}
-            onChange={this.handleChange_("needsHotel")}
+            onChange={this.handleChange_('needsHotel')}
             inputProps={{
-              name: "needsHotel",
-              id: "needsHotel",
+              name: 'needsHotel',
+              id: 'needsHotel',
             }}
           >
-            <MenuItem value={""}></MenuItem>
-            <MenuItem value={"Yes"}>Yes</MenuItem>
-            <MenuItem value={"No"}>No</MenuItem>
+            <MenuItem value={''}></MenuItem>
+            <MenuItem value={'Yes'}>Yes</MenuItem>
+            <MenuItem value={'No'}>No</MenuItem>
           </Select>
         </FormControl>
       </td>

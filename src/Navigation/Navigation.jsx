@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "./Navigation.module.scss";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import styles from './Navigation.module.scss';
+import {NavLink} from 'react-router-dom';
 
 function Navigation(props) {
   const classNames =
-    styles.navigation + (props.className ? ` ${props.className}` : "");
+    styles.navigation + (props.className ? ` ${props.className}` : '');
   return (
     <div className={classNames}>
       <h1>Colm Gallagher & Katelyn Salvatore</h1>

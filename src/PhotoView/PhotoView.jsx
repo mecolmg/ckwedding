@@ -1,7 +1,7 @@
-import React from "react";
-import Footer from "Footer/Footer.jsx";
-import Gallery from "Gallery/Gallery.jsx";
-import Navigation from "Navigation/Navigation.jsx";
+import React from 'react';
+import Footer from 'Footer/Footer.jsx';
+import Gallery from 'Gallery/Gallery.jsx';
+import Navigation from 'Navigation/Navigation.jsx';
 
 function PhotoView() {
   return (

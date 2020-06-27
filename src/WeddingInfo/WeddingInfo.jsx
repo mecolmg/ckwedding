@@ -1,15 +1,15 @@
-import React from "react";
-import styles from "./WeddingInfo.module.scss";
-import Countdown from "react-countdown-now";
+import React from 'react';
+import styles from './WeddingInfo.module.scss';
+import Countdown from 'react-countdown-now';
 
 function WeddingInfo(props) {
   const classNames =
-    styles.weddingInfo + (props.className ? ` ${props.className}` : "");
+    styles.weddingInfo + (props.className ? ` ${props.className}` : '');
   return (
     <div className={classNames}>
       <h1 className={styles.title}>The Wedding</h1>
       <div className={styles.countdown}>
-        ~ <Countdown date="Sat, 26 Sep 2020" renderer={props => props.days} />{" "}
+        ~ <Countdown date="Sat, 26 Sep 2020" renderer={(props) => props.days} />{' '}
         Days Away ~
       </div>
       <div className={styles.events}>
