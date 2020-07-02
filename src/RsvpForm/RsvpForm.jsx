@@ -40,7 +40,7 @@ export default function RsvpForm() {
         <RespondentsStep
           attendees={attendees}
           respondents={respondents}
-          onChange={setRespondents}
+          onRespondentsChange={setRespondents}
         />
       ),
       validate: () => respondents.length > 0,

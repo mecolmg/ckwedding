@@ -1,0 +1,7 @@
+.formInput:global(.MuiFormControl-root) {
+  display: block;
+}
+
+.formInput :global(.MuiFormGroup-root) {
+  justify-content: center;
+}

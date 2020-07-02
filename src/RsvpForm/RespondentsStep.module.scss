@@ -1,3 +1,5 @@
+@import 'colors';
+
 .loadingContainer {
   align-items: center;
   display: flex;
@@ -6,4 +8,19 @@
 
 .spinner {
   margin-right: 16px;
+}
+
+.respondentForm {
+  overflow: hidden;
+}
+
+.respondentForm:not(:last-child) {
+  background-image: linear-gradient(
+    to right,
+    $secondary 50%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 16px 1px;
+  background-repeat: repeat-x;
 }
