@@ -5,6 +5,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import RespondentsStep from './RespondentsStep';
+import MealStep from './MealStep';
 
 const GET_ATTENDEES_URL =
   'https://script.google.com/macros/s/AKfycbxTjLDFGXa9BtKJPKpWaISqkx2nhwHePKQzHE1o/exec';
@@ -47,7 +48,17 @@ export default function RsvpForm() {
     },
     {
       label: 'Dinner',
-      content: <div>TODO</div>,
+      content: (
+        <MealStep
+          respondents={respondents}
+          onRespondentsChange={setRespondents}
+        />
+      ),
+      validate: () =>
+        respondents.filter(
+          ({attending, mealChoice, plusOneAttending, plusOneMealChoice}) =>
+            !(attending ^ !mealChoice && plusOneAttending ^ !plusOneMealChoice)
+        ).length === 0,
     },
   ];
 
