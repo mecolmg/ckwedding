@@ -14,6 +14,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Collapse from '@material-ui/core/Collapse';
 import FormInput from './FormInput';
 import styles from './RespondentsStep.module.scss';
+import {RespondentUpdater} from './respondents';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -23,13 +24,10 @@ export default function RespondentsStep({
   respondents,
   onRespondentsChange,
 }) {
-  const updateRespondent = (i, key, value) => {
-    onRespondentsChange(
-      respondents.map((respondent, j) =>
-        i === j ? {...respondent, [`${key}`]: value} : {...respondent}
-      )
-    );
-  };
+  const updateRespondent = RespondentUpdater.from(
+    respondents,
+    onRespondentsChange
+  );
 
   return (
     <>
@@ -143,7 +141,7 @@ function PlusOneForm({respondent, updateRespondent}) {
       </FormInput>
       <Collapse in={plusOneAttending}>
         <FormInput>
-          <FormLabel>What is {fullName}&apos;s plus one&apos; name?</FormLabel>
+          <FormLabel>What is {fullName}&apos;s plus one&apos;s name?</FormLabel>
           <FormGroup row>
             <FormInput></FormInput>
             <FormInput>

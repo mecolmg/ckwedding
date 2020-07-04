@@ -6,15 +6,13 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 import styles from './MealStep.module.scss';
+import {RespondentUpdater} from './respondents';
 
 export default function MealStep({respondents, onRespondentsChange}) {
-  const updateRespondent = (i, key, value) => {
-    onRespondentsChange(
-      respondents.map((respondent, j) =>
-        i === j ? {...respondent, [`${key}`]: value} : {...respondent}
-      )
-    );
-  };
+  const updateRespondent = RespondentUpdater.from(
+    respondents,
+    onRespondentsChange
+  );
 
   const getMealRespondents = (
     {
