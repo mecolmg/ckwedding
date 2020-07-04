@@ -14,7 +14,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Collapse from '@material-ui/core/Collapse';
 import FormInput from './FormInput';
 import styles from './RespondentsStep.module.scss';
-import {RespondentUpdater} from './respondents';
+import {RespondentPropType, RespondentUpdater} from './respondents';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -36,6 +36,7 @@ export default function RespondentsStep({
         disableClearable
         disableCloseOnSelect
         getOptionLabel={getAttendeeLabel}
+        getOptionSelected={(a, b) => a.id === b.id}
         value={respondents}
         groupBy={(attendee) => attendee.familyName}
         loading={attendees.length === 0}
@@ -82,7 +83,7 @@ export default function RespondentsStep({
 
 RespondentsStep.propTypes = {
   attendees: PropTypes.array.isRequired,
-  respondents: PropTypes.array.isRequired,
+  respondents: PropTypes.arrayOf(RespondentPropType),
   onRespondentsChange: PropTypes.func.isRequired,
 };
 
@@ -116,7 +117,7 @@ function RespondentForm({respondent, updateRespondent, ...props}) {
 }
 
 RespondentForm.propTypes = {
-  respondent: PropTypes.object.isRequired,
+  respondent: RespondentPropType,
   updateRespondent: PropTypes.func.isRequired,
 };
 
@@ -143,7 +144,6 @@ function PlusOneForm({respondent, updateRespondent}) {
         <FormInput>
           <FormLabel>What is {fullName}&apos;s plus one&apos;s name?</FormLabel>
           <FormGroup row>
-            <FormInput></FormInput>
             <FormInput>
               <TextField
                 label="Full name"
@@ -162,7 +162,7 @@ function PlusOneForm({respondent, updateRespondent}) {
 }
 
 PlusOneForm.propTypes = {
-  respondent: PropTypes.object.isRequired,
+  respondent: RespondentPropType,
   updateRespondent: PropTypes.func.isRequired,
 };
 

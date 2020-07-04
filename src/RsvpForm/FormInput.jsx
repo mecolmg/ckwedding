@@ -27,5 +27,5 @@ export default function FormInput({
 FormInput.propTypes = {
   className: PropTypes.string,
   inline: PropTypes.bool,
-  margin: PropTypes.oneOf('none', 'dense', 'normal'),
+  margin: PropTypes.oneOf(['none', 'dense', 'normal']),
 };

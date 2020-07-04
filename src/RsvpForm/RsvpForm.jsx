@@ -26,6 +26,23 @@ export default function RsvpForm() {
     getAttendees();
   }, []);
 
+  const handleRespondentsChange = (newRespondents) => {
+    setRespondents(
+      newRespondents.map(({...respondent}) => {
+        if (!respondent.attending) {
+          respondent.mealChoice = '';
+          respondent.plusOneAttending = false;
+        }
+        if (!respondent.plusOneAttending) {
+          respondent.plusOneTitle = '';
+          respondent.plusOneName = '';
+          respondent.plusOneMealChoice = '';
+        }
+        return respondent;
+      })
+    );
+  };
+
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -41,17 +58,22 @@ export default function RsvpForm() {
         <RespondentsStep
           attendees={attendees}
           respondents={respondents}
-          onRespondentsChange={setRespondents}
+          onRespondentsChange={handleRespondentsChange}
         />
       ),
-      validate: () => respondents.length > 0,
+      validate: () =>
+        respondents.length > 0 &&
+        respondents.filter(
+          ({plusOneAttending, plusOneName}) =>
+            !(plusOneAttending ^ !plusOneName)
+        ).length === 0,
     },
     {
       label: 'Dinner',
       content: (
         <MealStep
           respondents={respondents}
-          onRespondentsChange={setRespondents}
+          onRespondentsChange={handleRespondentsChange}
         />
       ),
       validate: () =>
