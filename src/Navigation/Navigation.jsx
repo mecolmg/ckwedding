@@ -36,6 +36,13 @@ function Navigation(props) {
           About Venue
         </NavLink>
         <NavLink
+          to="/menu"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
+          Menu
+        </NavLink>
+        <NavLink
           to="/hotels"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}

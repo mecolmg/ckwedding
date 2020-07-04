@@ -1,0 +1,17 @@
+// Module styles for the MenuInfo component.
+@import "index";
+
+.menuInfo {
+  @extend .card;
+  text-align: center;
+}
+
+.title {
+  margin-top: 0;
+  text-align: center;
+}
+
+.sourceLink {
+  display: block;
+  text-align: right;
+}
