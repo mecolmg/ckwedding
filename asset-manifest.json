@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.32043bcd.chunk.css",
-    "main.js": "/static/js/main.f942cba7.chunk.js",
-    "main.js.map": "/static/js/main.f942cba7.chunk.js.map",
+    "main.css": "/static/css/main.c1e2eb0b.chunk.css",
+    "main.js": "/static/js/main.edbdbc6d.chunk.js",
+    "main.js.map": "/static/js/main.edbdbc6d.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.47b9b368.js",
     "runtime~main.js.map": "/static/js/runtime~main.47b9b368.js.map",
     "static/js/2.79589c9c.chunk.js": "/static/js/2.79589c9c.chunk.js",
     "static/js/2.79589c9c.chunk.js.map": "/static/js/2.79589c9c.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.8a198b34da8ec31b794007dd6fcc11fb.js": "/precache-manifest.8a198b34da8ec31b794007dd6fcc11fb.js",
+    "precache-manifest.5287919ef414041500d3d3e427df7057.js": "/precache-manifest.5287919ef414041500d3d3e427df7057.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.32043bcd.chunk.css.map": "/static/css/main.32043bcd.chunk.css.map",
+    "static/css/main.c1e2eb0b.chunk.css.map": "/static/css/main.c1e2eb0b.chunk.css.map",
     "static/media/Splash.module.scss": "/static/media/AcornStreet@0,5x.eae59cfa.jpg",
     "static/media/HotelsInfo.module.scss": "/static/media/ComfortSuites.6ede344e.png",
     "static/media/MarriottLogo.png": "/static/media/MarriottLogo.eb47c2e4.png"
