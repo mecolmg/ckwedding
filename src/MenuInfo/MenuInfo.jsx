@@ -4,7 +4,7 @@ import styles from "./MenuInfo.module.scss";
 function MenuInfo() {
   return (
     <div className={styles.menuInfo}>
-      <h1 className={styles.title}>Cocktail Hour</h1>
+      <h1 className={styles.title}>Cocktail Hour - 5:30 PM</h1>
       <h2 className={styles.title}>Passed Hors d'oeuvres</h2>
       <p>
         <b>Citrus Grilled Shrimp</b>
@@ -26,7 +26,7 @@ function MenuInfo() {
         <br/>
         Plum Teriyaki Glaze
       </p>
-      <h1 className={styles.title}>Dinner Menu</h1>
+      <h1 className={styles.title}>Dinner Menu - 6:30 PM</h1>
       <h2 className={styles.title}>Plated Salad Course</h2>
       <p>
         <b>Celebrations Salad</b>
@@ -42,28 +42,32 @@ function MenuInfo() {
         <br/>
         Madeira wine reduction and apple horseradish cream
         <br/>
-        (TBD) Served with Yukon Gold Mashed Potatoes and Oven Roasted Asparagus
+        Served with Yukon Gold Mashed Potatoes and Fresh Green Beans
       </p>
       <p>
         <b>Rosemary Roast Chicken</b>
         <br/>
         Lemon Caper Au Jus
         <br/>
-        (TBD) Served with Yukon Gold Mashed Potatoes and Oven Roasted Asparagus
+        Served with Savory Herbed Rice Pilaf and Grilled Vegetable Trio
+        <br/>
+        (red peppers, asparagus, and yellow squash)
       </p>
       <p>
         <b>Chesapeake Style Crab Cake</b>
         <br/>
         Lump crab meat blended with savory herbs with creamy old bay mustard
         <br/>
-        (TBD) Served with Roasted Red Potatoes and Fresh Green Beans
+        Served with Yukon Gold Mashed Potatoes and Fresh Green Beans
       </p>
       <p>
         <b>Butternut Squash Ravioli (Vegetarian)</b>
         <br/>
         Sun-dried tomato cream sauce drizzled with basil purée
         <br/>
-        (TBD) Served with Fresh Green Beans
+        Served with Grilled Vegetable Trio
+        <br/>
+        (red peppers, asparagus, and yellow squash)
       </p>
     </div>
   );
