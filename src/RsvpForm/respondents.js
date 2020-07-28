@@ -20,6 +20,7 @@ const RespondentPropType = PropTypes.shape({
   hasPlusOne: PropTypes.bool,
   attending: PropTypes.bool,
   mealChoice: PropTypes.string,
+  emails: PropTypes.string,
   plusOneAttending: PropTypes.bool,
   plusOneTitle: PropTypes.string,
   plusOneName: PropTypes.string,

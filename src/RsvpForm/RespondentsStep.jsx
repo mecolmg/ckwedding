@@ -42,6 +42,7 @@ export default function RespondentsStep({
         loading={attendees.length === 0}
         loadingText={<LoadingAttendees />}
         multiple
+        ChipProps={{color: 'primary'}}
         onChange={(event, respondents) => {
           onRespondentsChange(respondents);
         }}

@@ -6,6 +6,7 @@ import StepContent from '@material-ui/core/StepContent';
 import Button from '@material-ui/core/Button';
 import RespondentsStep from './RespondentsStep';
 import MealStep from './MealStep';
+import ContactStep from './ContactStep';
 
 const GET_ATTENDEES_URL =
   'https://script.google.com/macros/s/AKfycbxTjLDFGXa9BtKJPKpWaISqkx2nhwHePKQzHE1o/exec';
@@ -53,7 +54,7 @@ export default function RsvpForm() {
 
   const getSteps = () => [
     {
-      label: 'Select guest(s)',
+      label: 'Select Guest(s)',
       content: (
         <RespondentsStep
           attendees={attendees}
@@ -81,6 +82,15 @@ export default function RsvpForm() {
           ({attending, mealChoice, plusOneAttending, plusOneMealChoice}) =>
             !(attending ^ !mealChoice && plusOneAttending ^ !plusOneMealChoice)
         ).length === 0,
+    },
+    {
+      label: 'Contact Info',
+      content: (
+        <ContactStep
+          respondents={respondents}
+          onRespondentsChange={handleRespondentsChange}
+        />
+      ),
     },
   ];
 
