@@ -1,9 +1,31 @@
 // Module styles for WeddingInfo component.
 
-@import "colors";
-@import "devices";
-@import "index";
-@import "material-shadows/material-shadows";
+@import 'colors';
+@import 'devices';
+@import 'index';
+@import 'material-shadows/material-shadows';
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.container p {
+  line-height: 24px;
+}
+
+.container sup {
+  vertical-align: top;
+  position: relative;
+  top: -0.4em;
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
 
 .weddingInfo {
   @extend .card;
@@ -20,10 +42,21 @@
 .events {
   display: flex;
   justify-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .event {
   margin: 0 24px;
+  flex: 1 0 0px;
+}
+
+.eventLinks {
+  margin-top: 16px;
+}
+
+.eventLinks div:not(:last-child) {
+  margin-bottom: 8px;
 }
 
 @media #{$screen-phone} {

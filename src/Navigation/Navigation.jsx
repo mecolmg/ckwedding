@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Navigation.module.scss';
 import {NavLink} from 'react-router-dom';
 
@@ -9,7 +10,7 @@ function Navigation(props) {
     <div className={classNames}>
       <h1>Colm Gallagher & Katelyn Salvatore</h1>
       <h3>
-        <span className={styles.nowrap}>September 26, 2020 |&nbsp;</span>
+        <span className={styles.nowrap}>August 28, 2021 |&nbsp;</span>
         <span className={styles.nowrap}>Bluemont, VA</span>
       </h3>
       <div className={styles.menu}>
@@ -20,13 +21,6 @@ function Navigation(props) {
           activeClassName={styles.menuItemActive}
         >
           Home
-        </NavLink>
-        <NavLink
-          to="/covid"
-          className={styles.menuItem}
-          activeClassName={styles.menuItemActive}
-        >
-          COVID-19 Update
         </NavLink>
         <NavLink
           to="/venue"
@@ -53,6 +47,7 @@ function Navigation(props) {
           to="/photos"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}
+          hidden
         >
           Gallery
         </NavLink>
@@ -60,5 +55,9 @@ function Navigation(props) {
     </div>
   );
 }
+
+Navigation.propTypes = {
+  className: PropTypes.string,
+};
 
 export default Navigation;

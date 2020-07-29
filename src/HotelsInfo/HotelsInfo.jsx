@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-// import ComfortSuitesLogo from "./images/ComfortSuitesLogo.png";
+import ComfortSuitesLogo from './images/ComfortSuitesLogo.png';
 import MarriottLogo from './images/MarriottLogo.png';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -32,16 +32,17 @@ export function HotelsInfo(props) {
     styles.hotelsInfo + (props.className ? ` ${props.className}` : '');
   return (
     <div className={classNames}>
-      <h1 className={styles.title}>Hotels Info</h1>
+      <h1 className={styles.title}>Hotel Info</h1>
       <div className={styles.hotelsContainer}>
-        {/*<Hotel
+        <Hotel
           name="Comfort Suites"
-          address={"80 Prosperity Ave\nLeesburg, VA, 20175"}
+          address={'80 Prosperity Ave\nLeesburg, VA, 20175'}
           mapsLink="https://goo.gl/maps/KKAgCeakvqvwo8Uf8"
           link="https://www.choicehotels.com/reservations/groups/IA67G8"
           logo={ComfortSuitesLogo}
           viewMoreAction={() => setComfortSuitesDialogOpen(true)}
-        />*/}
+          hidden
+        />
         <Hotel
           name="Marriott - SpringHill Suites"
           address={'20065 Lakeview Center Plaza\nAshburn, Virginia 20147'}
@@ -49,7 +50,20 @@ export function HotelsInfo(props) {
           link="https://www.marriott.com/events/start.mi?id=1570632297188&key=GRP"
           logo={MarriottLogo}
           viewMoreAction={() => setMarriottDialogOpen(true)}
+          hidden
         />
+        <div>
+          <h2>TBD</h2>
+          <p>
+            Now that the reception has been postponed, we're actively working
+            with our previously reserved hotels to schedule new accommodations
+            for the August 28th, 2021 wedding.
+          </p>
+          <p>
+            Sign up for email updates on the home page to stay informed on
+            changes.
+          </p>
+        </div>
       </div>
       <Dialog
         open={comfortSuitesDialogOpen}
@@ -184,20 +198,24 @@ export function HotelsInfo(props) {
   );
 }
 
-function Hotel(props) {
+function Hotel({
+  name,
+  logo,
+  address,
+  link,
+  mapsLink,
+  viewMoreAction,
+  ...props
+}) {
   return (
-    <div className={styles.hotel}>
-      <a href={props.link} target="_blank" rel="noopener noreferrer">
-        <img
-          src={props.logo}
-          alt={`${props.name} Logo`}
-          className={styles.hotelImage}
-        />
+    <div className={styles.hotel} {...props}>
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        <img src={logo} alt={`${name} Logo`} className={styles.hotelImage} />
       </a>
-      <p>{props.name}</p>
-      <a href={props.mapsLink} target="_blank" rel="noopener noreferrer">
+      <p>{name}</p>
+      <a href={mapsLink} target="_blank" rel="noopener noreferrer">
         <div>
-          {props.address.split('\n').map((x, index) => (
+          {address.split('\n').map((x, index) => (
             <div key={index}>{x}</div>
           ))}
         </div>
@@ -206,14 +224,14 @@ function Hotel(props) {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => props.viewMoreAction()}
+          onClick={() => viewMoreAction()}
         >
           View Details
         </Button>
         <Button
           variant="contained"
           color="primary"
-          href={props.link}
+          href={link}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -256,11 +274,11 @@ export const HotelsAndHousesMap = compose(
         //   position: { lat: 39.104933, lng: -77.548374 },
         //   link: "https://goo.gl/maps/zYoyV7xnGgSj76WG6",
         // },
-        {
-          name: 'Marriott - SpringHill Suites',
-          position: {lat: 39.0608259, lng: -77.4528328},
-          link: 'https://goo.gl/maps/YWEChCQBNbNHP1GQ7',
-        },
+        // {
+        //   name: 'Marriott - SpringHill Suites',
+        //   position: {lat: 39.0608259, lng: -77.4528328},
+        //   link: 'https://goo.gl/maps/YWEChCQBNbNHP1GQ7',
+        // },
       ];
       const bounds = new window.google.maps.LatLngBounds();
       markers.forEach((marker) => {
