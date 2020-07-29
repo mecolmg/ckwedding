@@ -47,7 +47,6 @@ function Navigation(props) {
           to="/photos"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}
-          hidden
         >
           Gallery
         </NavLink>

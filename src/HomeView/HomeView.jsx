@@ -15,8 +15,8 @@ function HomeView() {
       <Navigation className={styles.navigation} />
       <Splash formRef={formRef} />
       <WeddingInfo className={styles.weddingInfo} />
-      <Gallery hidden />
       <EmailForm ref={formRef} />
+      <Gallery />
       <Footer />
     </div>
   );
