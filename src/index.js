@@ -11,7 +11,7 @@ import PhotosView from './PhotoView/PhotoView';
 import * as serviceWorker from './serviceWorker';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {HashRouter as Router, Route} from 'react-router-dom';
 
 const theme = createMuiTheme({
   palette: {
