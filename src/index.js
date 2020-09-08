@@ -11,7 +11,7 @@ import PhotosView from './PhotoView/PhotoView';
 import * as serviceWorker from './serviceWorker';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
-import {HashRouter, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const theme = createMuiTheme({
   palette: {
@@ -32,7 +32,7 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <HashRouter basename="/">
+    <Router basename="/">
       <Route exact path="/" component={HomeView} />
       <Route path="/covid" component={CovidInfoView} />
       <Route path="/venue" component={VenueInfoView} />
@@ -40,7 +40,7 @@ ReactDOM.render(
       <Route path="/hotels" component={HotelsInfoView} />
       <Route path="/menu" component={MenuInfoView} />
       <Route path="/registry" component={RegistryView} />
-    </HashRouter>
+    </Router>
   </ThemeProvider>,
   document.getElementById('root')
 );
