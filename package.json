@@ -13,6 +13,7 @@
     "@types/react-dom": "^16.9.0",
     "dataframe-js": "^1.4.3",
     "debounce": "^1.2.0",
+    "firebase": "^7.22.0",
     "gh-pages": "^2.1.1",
     "lodash.debounce": "^4.0.8",
     "material-shadows": "^3.0.1",

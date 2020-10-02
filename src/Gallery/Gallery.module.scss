@@ -6,6 +6,10 @@
   @extend .sectionMargins;
 }
 
+.photographerLink:global(.MuiButtonBase-root) {
+  margin-top: 16px;
+}
+
 :global .image-gallery-content {
   .image-gallery-image {
     height: 100vh;
