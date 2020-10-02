@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.bc81e31d.chunk.css",
-    "main.js": "/static/js/main.fc2b7fc0.chunk.js",
-    "main.js.map": "/static/js/main.fc2b7fc0.chunk.js.map",
+    "main.css": "/static/css/main.5dc8e1f5.chunk.css",
+    "main.js": "/static/js/main.8a8e0f48.chunk.js",
+    "main.js.map": "/static/js/main.8a8e0f48.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2016aa4a.js",
     "runtime-main.js.map": "/static/js/runtime-main.2016aa4a.js.map",
-    "static/js/2.b6c0710b.chunk.js": "/static/js/2.b6c0710b.chunk.js",
-    "static/js/2.b6c0710b.chunk.js.map": "/static/js/2.b6c0710b.chunk.js.map",
+    "static/js/2.f50d76e3.chunk.js": "/static/js/2.f50d76e3.chunk.js",
+    "static/js/2.f50d76e3.chunk.js.map": "/static/js/2.f50d76e3.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.3b338480fea0fb123f41ac9cba36869f.js": "/precache-manifest.3b338480fea0fb123f41ac9cba36869f.js",
+    "precache-manifest.6690b4d005b5c943b2375f23860e7beb.js": "/precache-manifest.6690b4d005b5c943b2375f23860e7beb.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.bc81e31d.chunk.css.map": "/static/css/main.bc81e31d.chunk.css.map",
-    "static/js/2.b6c0710b.chunk.js.LICENSE.txt": "/static/js/2.b6c0710b.chunk.js.LICENSE.txt",
+    "static/css/main.5dc8e1f5.chunk.css.map": "/static/css/main.5dc8e1f5.chunk.css.map",
+    "static/js/2.f50d76e3.chunk.js.LICENSE.txt": "/static/js/2.f50d76e3.chunk.js.LICENSE.txt",
     "static/media/Splash.module.scss": "/static/media/AcornStreet@0,5x.eae59cfa.jpg",
     "static/media/HotelsInfo.module.scss": "/static/media/ComfortSuites.6ede344e.png",
     "static/media/MarriottLogo.png": "/static/media/MarriottLogo.eb47c2e4.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2016aa4a.js",
-    "static/js/2.b6c0710b.chunk.js",
-    "static/css/main.bc81e31d.chunk.css",
-    "static/js/main.fc2b7fc0.chunk.js"
+    "static/js/2.f50d76e3.chunk.js",
+    "static/css/main.5dc8e1f5.chunk.css",
+    "static/js/main.8a8e0f48.chunk.js"
   ]
 }
