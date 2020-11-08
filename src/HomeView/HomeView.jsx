@@ -1,6 +1,5 @@
 import React from 'react';
 import Footer from 'Footer/Footer.jsx';
-import Gallery from 'Gallery/Gallery.jsx';
 import Navigation from 'Navigation/Navigation.jsx';
 import RSVP from 'RSVP/RSVP.jsx';
 import Splash from 'Splash/Splash.jsx';
@@ -16,7 +15,6 @@ function HomeView() {
       <Splash formRef={formRef} />
       <WeddingInfo className={styles.weddingInfo} />
       <EmailForm ref={formRef} />
-      <Gallery />
       <Footer />
     </div>
   );
