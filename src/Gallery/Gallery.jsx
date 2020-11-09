@@ -7,7 +7,7 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { isMobile } from "react-device-detect";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Gallery = (props) => {
   const [photos, setPhotos] = useState([]);
@@ -25,7 +25,7 @@ const Gallery = (props) => {
               src: url,
               placeholderSrc: `${url}=w100`,
               thumbnailSrc: `${url}=w480`,
-              lightboxSrc: isMobile ? `${url}=w1024` : `${url}=w1920`,
+              lightboxSrc: `${url}=w1920`,
               width: doc.get("width"),
               height: doc.get("height"),
             };
@@ -50,12 +50,18 @@ const Gallery = (props) => {
 
   return (
     <div className={styles.gallery}>
-      <PhotoGallery
-        photos={photos}
-        onClick={openLightbox}
-        renderImage={LazyImage}
-        margin={4}
-      />
+      {photos.length > 0 ? (
+        <PhotoGallery
+          photos={photos}
+          onClick={openLightbox}
+          renderImage={LazyImage}
+          margin={4}
+        />
+      ) : (
+        <div>
+          <CircularProgress />
+        </div>
+      )}
       {viewerIsOpen && (
         <Lightbox
           mainSrc={mainImg.lightboxSrc}
