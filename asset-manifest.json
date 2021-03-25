@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.fd3ad8e6.chunk.css",
-    "main.js": "/static/js/main.42cfed15.chunk.js",
-    "main.js.map": "/static/js/main.42cfed15.chunk.js.map",
+    "main.css": "/static/css/main.4b42948f.chunk.css",
+    "main.js": "/static/js/main.ccc9e338.chunk.js",
+    "main.js.map": "/static/js/main.ccc9e338.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2016aa4a.js",
     "runtime-main.js.map": "/static/js/runtime-main.2016aa4a.js.map",
-    "static/css/2.4db03048.chunk.css": "/static/css/2.4db03048.chunk.css",
-    "static/js/2.d38a0a2d.chunk.js": "/static/js/2.d38a0a2d.chunk.js",
-    "static/js/2.d38a0a2d.chunk.js.map": "/static/js/2.d38a0a2d.chunk.js.map",
+    "static/css/2.8ef48d41.chunk.css": "/static/css/2.8ef48d41.chunk.css",
+    "static/js/2.154724f9.chunk.js": "/static/js/2.154724f9.chunk.js",
+    "static/js/2.154724f9.chunk.js.map": "/static/js/2.154724f9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.322faa6c46e26a0e807976c7729659c8.js": "/precache-manifest.322faa6c46e26a0e807976c7729659c8.js",
+    "precache-manifest.6d10c3c0a4a2c6d504b9b4b0a817157a.js": "/precache-manifest.6d10c3c0a4a2c6d504b9b4b0a817157a.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.4db03048.chunk.css.map": "/static/css/2.4db03048.chunk.css.map",
-    "static/css/main.fd3ad8e6.chunk.css.map": "/static/css/main.fd3ad8e6.chunk.css.map",
-    "static/js/2.d38a0a2d.chunk.js.LICENSE.txt": "/static/js/2.d38a0a2d.chunk.js.LICENSE.txt",
+    "static/css/2.8ef48d41.chunk.css.map": "/static/css/2.8ef48d41.chunk.css.map",
+    "static/css/main.4b42948f.chunk.css.map": "/static/css/main.4b42948f.chunk.css.map",
+    "static/js/2.154724f9.chunk.js.LICENSE.txt": "/static/js/2.154724f9.chunk.js.LICENSE.txt",
     "static/media/Splash.module.scss": "/static/media/AcornStreet@0,5x.eae59cfa.jpg",
     "static/media/HotelsInfo.module.scss": "/static/media/ComfortSuites.6ede344e.png",
     "static/media/MarriottLogo.png": "/static/media/MarriottLogo.eb47c2e4.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2016aa4a.js",
-    "static/css/2.4db03048.chunk.css",
-    "static/js/2.d38a0a2d.chunk.js",
-    "static/css/main.fd3ad8e6.chunk.css",
-    "static/js/main.42cfed15.chunk.js"
+    "static/css/2.8ef48d41.chunk.css",
+    "static/js/2.154724f9.chunk.js",
+    "static/css/main.4b42948f.chunk.css",
+    "static/js/main.ccc9e338.chunk.js"
   ]
 }
