@@ -8,6 +8,48 @@
 
 const registries = [
   {
+    id: '738485930',
+    registryUuid: 'DF89C01D-6CBF-4177-81E0-B5FA242ADBFB',
+    registryType: 2,
+    manualRegistryName: 'Crate & Barrel',
+    manualRegistryUrl:
+      'https://www.crateandbarrel.com/gift-registry/colm-and-katelyn-gallagher-and-katelyn-gallagher/r6258151',
+    hiddenCoupleSearch: false,
+    hiddenWws: false,
+    isDeleted: false,
+    retailer: {
+      id: 10074,
+      retailerName: 'Crate & Barrel',
+      description:
+        'Inspired by the founding couple’s honeymoon in Europe as newlyweds, Crate & Barrel has been offering distinctly contemporary home products since they opened for business in 1962. In a coincidental nod to the company’s nuptial-inspired beginnings, the Crate and Barrel Registry has become an iconic part of any soon-to-wed couple’s gift list. Assemble a wishlist of unique yet affordable home products on your Crate and Barrel wedding registry. Providing couples with everything from ceramic serving pieces to beautiful handmade furnishings, the Crate and Barrel bridal registry gives you a well-rounded selection of gifts to create your new home together as spouses. Though all of the products on the Crate and Barrel registry are finely crafted and luxurious, the products have a variety of price tags ranging from the low to high end. This gives wedding guests of every financial background an opportunity to contribute to your celebration. There are numerous benefits to signing up for the Crate and Barrel bridal registry, including special discounts and other perks. Enjoy a completion discount for any products that you purchase from your Crate and Barrel registry 6 months after your wedding day. You can even enjoy exclusive Crate and Barrel registry events, where you’ll receive one-on-one consultations from their attentive company experts. If you have a soft spot for contemporary style with a European bent, then the Crate and Barrel Gift Registry will be a great fit for you.',
+      eventType: 1,
+      website: null,
+      domain: 'crateandbarrel.com',
+      additionalInfoUrl: null,
+      storeInfoPageUrl:
+        'http://wedding.theknot.com/registry/crateandbarrel-registry.aspx',
+      fullLogoImageUrl:
+        'https://static.xoedge.com/xo-registry/retailer/retailerImagec803ff67-f12c-41a1-991d-08bb169fe3ee.png',
+      smallLogoImageUrl:
+        'https://static.xoedge.com/xo-registry/retailer/retailerImage41dd863e-4745-4cd5-884c-8149a9179992.gif',
+      heroImageUrl:
+        'https://static.xoedge.com/xo-registry/retailer/hero/20170522142048825-Crate_And_Barrel_Hero_Image_1.jpg',
+      privacyPolicyUrl:
+        'https://www.crateandbarrel.com/Customer-Service/Privacy-Policy',
+      registryCreateLogoImageUrl: null,
+      returnAndExchangePolicy: null,
+      oneColSortOrder: 3,
+      twoColSortOrder: null,
+      threeColSortOrder: null,
+      fourColSortOrder: 5,
+      isPartner: true,
+      isDeleted: false,
+      tier: 2,
+      benefits: null,
+      slug: 'crate-and-barrel',
+    },
+  },
+  {
     id: '736414555',
     registryUuid: '149FA1D1-272D-4E8E-83FC-41ABBA9ED607',
     registryType: 1,
@@ -49,12 +91,52 @@ const registries = [
     },
   },
   {
+    id: '736414552',
+    registryUuid: '08C41167-6BC8-4466-80F8-A0C8FF6E0126',
+    registryType: 1,
+    manualRegistryName: null,
+    manualRegistryUrl: null,
+    hiddenCoupleSearch: false,
+    hiddenWws: false,
+    isDeleted: false,
+    retailer: {
+      id: 14020,
+      retailerName: 'Amazon',
+      description:
+        'Not all registries are created equal—and if anything proves that brick and mortar locations are overrated, then it’s Amazon’s wedding registry. Existing exclusively online, the Amazon registry is known for its ease of use, massive product selection and “universal features.” This means that you can add any product you wish to your Amazon bridal registry, even from other websites! Compared to other wedding registries, the Amazon registry has the world’s largest selection of items, ranging from flatware to small kitchen appliances to clothing to movies to pretty much anything else you can imagine. This huge selection also allows you to put a number of different items with varying price points on your registry, ensuring that guests of every financial background can contribute to your wedding day. Of course, the benefits don’t end there. You’ll also receive numerous perks when you sign up for the Amazon gift registry, ranging from completion discounts to shipping price cuts and more. Whether you are hoping to put a new big screen television in your living room to watch your wedding videos or want to host a fancy dinner with the in-laws over new china, you’re sure to fulfill your needs with the Amazon registry.',
+      eventType: 1,
+      website: null,
+      domain: 'amazon.com',
+      additionalInfoUrl: null,
+      storeInfoPageUrl:
+        'http://wedding.theknot.com/registry/amazon-registry.aspx',
+      fullLogoImageUrl:
+        'https://static.xoedge.com/xo-registry/retailer/logo/20210202165431745-usethisssssss.png',
+      smallLogoImageUrl:
+        'https://static.xoedge.com/xo-registry/retailer/retailerImage385a6b85-b8f8-4d87-bb42-a3e7273c992e.gif',
+      heroImageUrl:
+        'https://static.xoedge.com/xo-registry/retailer/hero/20200103202345604-BBBUSETHIS.jpg',
+      privacyPolicyUrl:
+        'https://www.amazon.com/gp/help/customer/display.html?ie=UTF8&nodeId=468496',
+      registryCreateLogoImageUrl: null,
+      returnAndExchangePolicy: null,
+      oneColSortOrder: 2,
+      twoColSortOrder: null,
+      threeColSortOrder: null,
+      fourColSortOrder: 6,
+      isPartner: true,
+      isDeleted: false,
+      tier: 3,
+      benefits: null,
+      slug: 'amazon',
+    },
+  },
+  {
     id: '737925809',
     registryUuid: 'CF3AADCC-2E1C-4B3F-98EA-E6B7BCDEB5BC',
-    registryType: 2,
-    manualRegistryName: 'REI',
-    manualRegistryUrl:
-      'https://www.myregistry.com/rei/wedding-registry/colm-gallagher-and-katie-salvatore-somerville-ma/2694808',
+    registryType: 1,
+    manualRegistryName: null,
+    manualRegistryUrl: null,
     hiddenCoupleSearch: false,
     hiddenWws: false,
     isDeleted: false,
@@ -87,87 +169,6 @@ const registries = [
       tier: 3,
       benefits: null,
       slug: 'rei',
-    },
-  },
-  {
-    id: '736414552',
-    registryUuid: '08C41167-6BC8-4466-80F8-A0C8FF6E0126',
-    registryType: 1,
-    manualRegistryName: null,
-    manualRegistryUrl: null,
-    hiddenCoupleSearch: false,
-    hiddenWws: false,
-    isDeleted: false,
-    retailer: {
-      id: 14020,
-      retailerName: 'Amazon',
-      description:
-        'Not all registries are created equal—and if anything proves that brick and mortar locations are overrated, then it’s Amazon’s wedding registry. Existing exclusively online, the Amazon registry is known for its ease of use, massive product selection and “universal features.” This means that you can add any product you wish to your Amazon bridal registry, even from other websites! Compared to other wedding registries, the Amazon registry has the world’s largest selection of items, ranging from flatware to small kitchen appliances to clothing to movies to pretty much anything else you can imagine. This huge selection also allows you to put a number of different items with varying price points on your registry, ensuring that guests of every financial background can contribute to your wedding day. Of course, the benefits don’t end there. You’ll also receive numerous perks when you sign up for the Amazon gift registry, ranging from completion discounts to shipping price cuts and more. Whether you are hoping to put a new big screen television in your living room to watch your wedding videos or want to host a fancy dinner with the in-laws over new china, you’re sure to fulfill your needs with the Amazon registry.',
-      eventType: 1,
-      website: null,
-      domain: 'amazon.com',
-      additionalInfoUrl: null,
-      storeInfoPageUrl:
-        'http://wedding.theknot.com/registry/amazon-registry.aspx',
-      fullLogoImageUrl:
-        'https://static.xoedge.com/xo-registry/retailer/logo/20200107193947670-AMZ.png',
-      smallLogoImageUrl:
-        'https://static.xoedge.com/xo-registry/retailer/retailerImage385a6b85-b8f8-4d87-bb42-a3e7273c992e.gif',
-      heroImageUrl:
-        'https://static.xoedge.com/xo-registry/retailer/hero/20200103202345604-BBBUSETHIS.jpg',
-      privacyPolicyUrl:
-        'https://www.amazon.com/gp/help/customer/display.html?ie=UTF8&nodeId=468496',
-      registryCreateLogoImageUrl: null,
-      returnAndExchangePolicy: null,
-      oneColSortOrder: 2,
-      twoColSortOrder: null,
-      threeColSortOrder: null,
-      fourColSortOrder: 6,
-      isPartner: true,
-      isDeleted: false,
-      tier: 3,
-      benefits: null,
-      slug: 'amazon',
-    },
-  },
-  {
-    id: '736933032',
-    registryUuid: '236F3190-E76E-11EA-B302-D7B0DFB72CC5',
-    registryType: 1,
-    manualRegistryName: null,
-    manualRegistryUrl: null,
-    hiddenCoupleSearch: false,
-    hiddenWws: false,
-    isDeleted: false,
-    retailer: {
-      id: 14050,
-      retailerName: 'Bed Bath & Beyond',
-      description:
-        'Seamlessly intertwining sophistication with affordability, the Bed Bath and Beyond registry gives you a wide selection of amazing wedding gifts that can suit any taste or budget. The Bed Bath and Beyond wedding registry allows you and your beloved to fill your new home with housewares that perfectly suit your taste and style. Whether you enjoy more classically crafted decor or items that are funky and unique, you’re sure to find your ideal match with the Bed Bath and Beyond bridal registry. Gather everything from your everyday essentials—like cookware and flatware—to more hefty investments like luggage and cleaning appliances. You can even get specially personalized products that reflect your new life together, like monogrammed towels or pillows printed with your engagement photos. The Bed Bath and Beyond gift registry allows wedding guests of any financial background to contribute to your new life, with many different price points that range from high end to downright steals. You can also take advantage of the Bed Bath and Beyond bridal registry checklist, as well as its other amazing content and perks. Known as the go-to place for home essentials, the Bed Bath and Beyond registry continues its legacy as a beloved company by offering soon-to-be-wed couples everything they could want or need to begin their life together as spouses.',
-      eventType: 1,
-      website: '',
-      domain: '',
-      additionalInfoUrl: '',
-      storeInfoPageUrl: '',
-      fullLogoImageUrl:
-        'https://static.xoedge.com/xo-registry/retailer/logo/20200701131324047-20200626145121921-BBB_2020_Logo_Vertical.png',
-      smallLogoImageUrl:
-        'https://static.xoedge.com/xo-registry/retailer/retailerImage5aa4f7d5-2039-4f93-8c31-c70181031363.gif',
-      heroImageUrl:
-        'https://static.xoedge.com/xo-registry/retailer/hero/20191223184358161-BBBIMG2.jpg',
-      privacyPolicyUrl:
-        'https://www.bedbathandbeyond.com/store/static/PrivacyPolicy',
-      registryCreateLogoImageUrl: '',
-      returnAndExchangePolicy: '',
-      oneColSortOrder: 1,
-      twoColSortOrder: null,
-      threeColSortOrder: null,
-      fourColSortOrder: 1,
-      isPartner: true,
-      isDeleted: false,
-      tier: 3,
-      benefits: '',
-      slug: 'bed-bath-beyond',
     },
   },
   {
