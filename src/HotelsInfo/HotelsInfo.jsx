@@ -310,7 +310,7 @@ export function HotelsInfo(props) {
             </p>
             <h2>When is the Last Day to Book a Room?</h2>
             <p>
-              Rooms in the hotel wedding block can be booked until 24 hours
+              Rooms in the hotel wedding block can be booked up to 24 hours
               before your planned check-in date! So for most guests, that means
               you can wait to reserve a room until August 26<sup>th</sup> at the
               latest. We would recommend booking sooner than 24 hours out just
