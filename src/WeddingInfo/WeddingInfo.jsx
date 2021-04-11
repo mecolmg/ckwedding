@@ -21,7 +21,7 @@ function WeddingInfo(props) {
           </b>
           , in hopes that those will be safer times. As you probably know
           however, we have been engaged for longer than most, and decided to
-          <i>tie the knot</i> on our original date - September 26
+          <i> tie the knot</i> on our original date - September 26
           <sup>th</sup>, 2020 - witnessed only by our most immediate family.
         </p>
         <p>
@@ -40,7 +40,7 @@ function WeddingInfo(props) {
               ~{" "}
               <Countdown
                 date="2021-08-28T17:00:00-05:00"
-                renderer={props => props.days}
+                renderer={(props) => props.days}
               />{" "}
               Days Away ~
             </div>
