@@ -1,8 +1,8 @@
 // Styles for HotelsInfo component.
 
-@import "index";
+@import 'index';
 
-$splash-image: url("images/ComfortSuites.png");
+$splash-image: url('images/ComfortSuites.png');
 
 .splash {
   width: 100%;
@@ -28,7 +28,7 @@ $splash-image: url("images/ComfortSuites.png");
   margin: 16px;
   min-width: 250px;
   .hotelImage {
-    max-height: 100px;
+    height: 100px;
   }
   .hotelButtons {
     padding: 8px 0;

@@ -1,23 +1,24 @@
-import React, { useState } from "react";
-import ComfortSuitesLogo from "./images/ComfortSuitesLogo.png";
-import MarriottLogo from "./images/MarriottLogo.png";
-import HiltonLogo from "./images/EmbassySuitesLogo.png";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Paper from "@material-ui/core/Paper";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import styles from "./HotelsInfo.module.scss";
-import mapStyles from "./map_styles.json";
-import { compose, lifecycle, withProps } from "recompose";
-import { useTheme } from "@material-ui/core/styles";
-import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
-import MarkerWithLabel from "react-google-maps/lib/components/addons/MarkerWithLabel";
+import React, {useState} from 'react';
+import ComfortSuitesLogo from './images/ComfortSuitesLogo.png';
+import MarriottLogo from './images/MarriottLogo.png';
+import HiltonLogo from './images/EmbassySuitesLogo.png';
+import TruHiltonLogo from './images/TruHilton.png';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Paper from '@material-ui/core/Paper';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import styles from './HotelsInfo.module.scss';
+import mapStyles from './map_styles.json';
+import {compose, lifecycle, withProps} from 'recompose';
+import {useTheme} from '@material-ui/core/styles';
+import {withScriptjs, withGoogleMap, GoogleMap} from 'react-google-maps';
+import MarkerWithLabel from 'react-google-maps/lib/components/addons/MarkerWithLabel';
 
-const MAPS_API_KEY = "AIzaSyDGOgMb65UUKxKAUrm4tZNYJNPa5Dqxbf8";
+const MAPS_API_KEY = 'AIzaSyDGOgMb65UUKxKAUrm4tZNYJNPa5Dqxbf8';
 
 export function Splash() {
   return <div className={styles.splash}></div>;
@@ -27,47 +28,19 @@ export function HotelsInfo(props) {
   const [marriottDialogOpen, setMarriottDialogOpen] = useState(false);
   const [comfortSuitesDialogOpen, setComfortSuitesDialogOpen] = useState(false);
   const [hiltonDialogOpen, setHiltonDialogOpen] = useState(false);
+  const [truHiltonDialogOpen, setTruHiltonDialogOpen] = useState(false);
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   const classNames =
-    styles.hotelsInfo + (props.className ? ` ${props.className}` : "");
+    styles.hotelsInfo + (props.className ? ` ${props.className}` : '');
   return (
     <div className={classNames}>
       <h1 className={styles.title}>Hotel Info</h1>
       <div className={styles.hotelsContainer}>
-        <div>
-          <p>
-            We've updated the hotel wedding blocks for the new 2021 reception
-            date! For those who would like to stay close to the Salvatore house
-            (or don't care either way), you may be better off waiting several
-            weeks to book your hotel.
-          </p>
-          <p>
-            There's a new hotel (Tru by Hilton) that's currently being built in
-            One Loudoun. Unfortunately, we don't know when construction will be
-            finished, but it's very close to opening! We think guests would
-            appreciate staying in One Loudoun, as it's a very fun area with lots
-            of restaurants and shopping. It{"'"}s also walking distance from the
-            Salvatore house (albeit a long walk).
-          </p>
-          <p>
-            <a href="https://goo.gl/maps/4TrcVzfLN3LKy4Ay9">
-              Here{"'"}s where the One Loudoun hotel will be located once it
-              opens.
-            </a>
-          </p>
-          <p>
-            We'll send an email update when we know more about the opening date
-            of the One Loudoun hotel. All guests have plenty of time to reserve
-            rooms still, so you shouldn't feel rushed. The following hotels
-            listed are also available for the wedding, so please choose
-            whichever will work best for you!
-          </p>
-        </div>
         <Hotel
           name="Comfort Suites"
-          address={"80 Prosperity Ave\nLeesburg, VA, 20175"}
+          address={'80 Prosperity Ave\nLeesburg, VA 20175'}
           mapsLink="https://goo.gl/maps/KKAgCeakvqvwo8Uf8"
           link="https://www.choicehotels.com/reservations/groups/IA67G8"
           logo={ComfortSuitesLogo}
@@ -75,22 +48,63 @@ export function HotelsInfo(props) {
           hidden
         />
         <Hotel
-          name="Marriott - SpringHill Suites"
-          address={"20065 Lakeview Center Plaza\nAshburn, Virginia 20147"}
-          mapsLink="https://goo.gl/maps/YWEChCQBNbNHP1GQ7"
-          link="https://www.marriott.com/events/start.mi?id=1597256182258&key=GRP"
-          logo={MarriottLogo}
-          viewMoreAction={() => setMarriottDialogOpen(true)}
+          name="Tru by Hilton"
+          address={'One Loudoun\nAshburn, VA 20147'}
+          mapsLink="https://goo.gl/maps/7RA7UHhr4LjU8s1X9"
+          logo={TruHiltonLogo}
+          viewMoreAction={() => setTruHiltonDialogOpen(true)}
         />
         <Hotel
           name="Embassy Suites by Hilton"
-          address={"44610 Waxpool Road\nDulles, Virginia 20147"}
+          address={'44610 Waxpool Road\nDulles, Virginia 20147'}
           mapsLink="https://goo.gl/maps/9cHcBFGTe4zmCi6A7"
           link="https://embassysuites.hilton.com/en/es/groups/personalized/W/WASNLES-GSW-20210827/index.jhtml"
           logo={HiltonLogo}
           viewMoreAction={() => setHiltonDialogOpen(true)}
         />
+        <Hotel
+          name="Marriott - SpringHill Suites"
+          address={'20065 Lakeview Center Plaza\nAshburn, Virginia 20147'}
+          mapsLink="https://goo.gl/maps/YWEChCQBNbNHP1GQ7"
+          link="https://www.marriott.com/events/start.mi?id=1597256182258&key=GRP"
+          logo={MarriottLogo}
+          viewMoreAction={() => setMarriottDialogOpen(true)}
+        />
       </div>
+      <Dialog
+        open={truHiltonDialogOpen}
+        maxWidth="md"
+        fullScreen={fullScreen}
+        onClose={() => setTruHiltonDialogOpen(false)}
+      >
+        <DialogTitle>Tru by Hilton - One Loudoun</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            <p>
+              There's a new hotel (Tru by Hilton) that's currently being built
+              in One Loudoun. Unfortunately, we don't know when construction
+              will be finished, but it's very close to opening! We think guests
+              would appreciate staying in One Loudoun, as it's a very fun area
+              with lots of restaurants and shopping. It{"'"}s also walking
+              distance from the Salvatore house (albeit a long walk).
+            </p>
+            <p>
+              We'll send an email update when we know more about the opening
+              date of the One Loudoun hotel. All guests have plenty of time to
+              reserve rooms still, so you shouldn't feel rushed.
+            </p>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={() => setTruHiltonDialogOpen(false)}
+            color="primary"
+            autoFocus
+          >
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Dialog
         open={comfortSuitesDialogOpen}
         maxWidth="md"
@@ -133,14 +147,14 @@ export function HotelsInfo(props) {
             <p>
               <b>Rental Cars</b> - If you&apos;d prefer a little more freedom,
               you can rent a car from Enterprise Rental Car in Leeseburg for a
-              discounted rate. The rate code is{" "}
+              discounted rate. The rate code is{' '}
               <b className={styles.rateCode}>L16V68G / COM</b>. Call
               703-777-5800 to book.
             </p>
             <h2>How to Book</h2>
             <p>
               To book your room, you can call the hotel directly at 703-669-1650
-              and ask for the Salvatore Wedding room block. You can also{" "}
+              and ask for the Salvatore Wedding room block. You can also{' '}
               <a href="https://www.choicehotels.com/reservations/groups/IA67G8">
                 book now online
               </a>
@@ -206,7 +220,7 @@ export function HotelsInfo(props) {
             <p>
               The last day to book is August 28<sup>th</sup>, 2020. To book your
               room, you can call the hotel directly at +1-703-723-9300 and ask
-              for the Salvatore-Gallagher Wedding room block. You can also{" "}
+              for the Salvatore-Gallagher Wedding room block. You can also{' '}
               <a
                 href="https://www.marriott.com/events/start.mi?id=1597256182258&key=GRP"
                 target="_blank"
@@ -320,7 +334,7 @@ export function HotelsInfo(props) {
             <p>
               To book your room, you can call the hotel directly at
               +1-703-723-5300 and ask for the Gallagher/Salvatore Wedding room
-              block. You can also{" "}
+              block. You can also{' '}
               <a
                 href="https://embassysuites.hilton.com/en/es/groups/personalized/W/WASNLES-GSW-20210827/index.jhtml"
                 target="_blank"
@@ -363,7 +377,7 @@ function Hotel({
       <p>{name}</p>
       <a href={mapsLink} target="_blank" rel="noopener noreferrer">
         <div>
-          {address.split("\n").map((x, index) => (
+          {address.split('\n').map((x, index) => (
             <div key={index}>{x}</div>
           ))}
         </div>
@@ -376,15 +390,17 @@ function Hotel({
         >
           View Details
         </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Book Now
-        </Button>
+        {link && (
+          <Button
+            variant="contained"
+            color="primary"
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Now
+          </Button>
+        )}
       </div>
     </div>
   );
@@ -393,9 +409,9 @@ function Hotel({
 export const HotelsAndHousesMap = compose(
   withProps({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${MAPS_API_KEY}`,
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
-    mapElement: <div style={{ height: `100%` }} />,
+    loadingElement: <div style={{height: `100%`}} />,
+    containerElement: <div style={{height: `400px`}} />,
+    mapElement: <div style={{height: `100%`}} />,
   }),
   withScriptjs,
   lifecycle({
@@ -403,19 +419,9 @@ export const HotelsAndHousesMap = compose(
       const refs = {};
       const markers = [
         {
-          name: "Whitehall Estate",
-          position: { lat: 39.1118773, lng: -77.8251408 },
-          link: "https://goo.gl/maps/XG5LsDTdDt3V7wM49",
-        },
-        {
-          name: "The Gallaghers' House",
-          position: { lat: 39.0168022, lng: -77.503797 },
-          link: "https://goo.gl/maps/ZPRGbeqaTYG2yHRR9",
-        },
-        {
-          name: "The Salvatores' House",
-          position: { lat: 39.0585488, lng: -77.4752764 },
-          link: "https://goo.gl/maps/oUUsEfGoT6GZGp8z8",
+          name: 'Whitehall Estate',
+          position: {lat: 39.1118773, lng: -77.8251408},
+          link: 'https://goo.gl/maps/XG5LsDTdDt3V7wM49',
         },
         // {
         //   name: "Comfort Suites",
@@ -423,21 +429,40 @@ export const HotelsAndHousesMap = compose(
         //   link: "https://goo.gl/maps/zYoyV7xnGgSj76WG6",
         // },
         {
-          name: "Marriott - SpringHill Suites",
-          position: { lat: 39.0608259, lng: -77.4528328 },
-          link: "https://goo.gl/maps/YWEChCQBNbNHP1GQ7",
+          name: 'Tru by Hilton - One Loudoun',
+          position: {lat: 39.0543889, lng: -77.4549387},
+          link: 'https://goo.gl/maps/z8VMnqJtBLJbzJHR6',
+          zIndex: 1,
         },
         {
-          name: "Embassy Suites by Hilton",
-          position: { lat: 39.01427, lng: -77.46201 },
-          link: "https://goo.gl/maps/9cHcBFGTe4zmCi6A7",
+          name: 'Embassy Suites by Hilton',
+          position: {lat: 39.01427, lng: -77.46201},
+          link: 'https://goo.gl/maps/9cHcBFGTe4zmCi6A7',
+          zIndex: 1,
+        },
+        {
+          name: 'Marriott - SpringHill Suites',
+          position: {lat: 39.0608259, lng: -77.4528328},
+          link: 'https://goo.gl/maps/YWEChCQBNbNHP1GQ7',
+          zIndex: 1,
+        },
+        {
+          name: "The Gallaghers' House",
+          position: {lat: 39.0168022, lng: -77.503797},
+          link: 'https://goo.gl/maps/ZPRGbeqaTYG2yHRR9',
+          zIndex: 2,
+        },
+        {
+          name: "The Salvatores' House",
+          position: {lat: 39.0585488, lng: -77.4752764},
+          link: 'https://goo.gl/maps/oUUsEfGoT6GZGp8z8',
+          zIndex: 2,
         },
       ];
       const bounds = new window.google.maps.LatLngBounds();
-      markers.forEach((marker) => {
+      for (const marker of markers) {
         bounds.extend(marker.position);
-      });
-
+      }
       this.setState({
         bounds,
         center: bounds.getCenter(),
@@ -446,7 +471,7 @@ export const HotelsAndHousesMap = compose(
           refs.map = ref;
           if (refs.map) {
             refs.map.fitBounds(bounds);
-            this.setState({ zoom: refs.map.getZoom() - 1 });
+            this.setState({zoom: refs.map.getZoom() - 1});
           }
         },
         zoom: 11,
