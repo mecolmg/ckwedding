@@ -50,6 +50,14 @@ const Gallery = (props) => {
 
   return (
     <div className={styles.gallery}>
+      <Button
+        className={styles.photographerLink}
+        variant="contained"
+        color="primary"
+        href="https://birdsofafeatherphotography.passgallery.com/-kcmicrowedding/gallery"
+      >
+        View Photographer Gallery
+      </Button>
       {photos.length > 0 ? (
         <PhotoGallery
           photos={photos}
@@ -87,14 +95,6 @@ const Gallery = (props) => {
           }}
         />
       )}
-      <Button
-        className={styles.photographerLink}
-        variant="contained"
-        color="primary"
-        href="https://birdsofafeatherphotography.passgallery.com/-kcmicrowedding/gallery"
-      >
-        View Photographer Gallery
-      </Button>
     </div>
   );
 };
