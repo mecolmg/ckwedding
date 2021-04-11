@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Navigation.module.scss';
-import {NavLink} from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./Navigation.module.scss";
+import { NavLink } from "react-router-dom";
 
 function Navigation(props) {
   const classNames =
-    styles.navigation + (props.className ? ` ${props.className}` : '');
+    styles.navigation + (props.className ? ` ${props.className}` : "");
   return (
     <div className={classNames}>
       <h1>Colm Gallagher & Katelyn Salvatore</h1>
@@ -30,6 +30,13 @@ function Navigation(props) {
           About Venue
         </NavLink>
         <NavLink
+          to="/our_story"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
+          Our Story
+        </NavLink>
+        <NavLink
           to="/menu"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}
@@ -51,7 +58,7 @@ function Navigation(props) {
           Hotel Info
         </NavLink>
         <NavLink
-          to="/photos"
+          to="/gallery"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}
         >
