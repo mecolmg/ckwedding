@@ -1,5 +1,5 @@
 // Module styles for the OurStoryInfo component.
-@import "index";
+@import 'index';
 
 .ourStoryInfo {
   @extend .card;
@@ -10,11 +10,6 @@
 .title {
   margin-top: 0;
   text-align: center;
-}
-
-.sourceLink {
-  display: block;
-  text-align: right;
 }
 
 .portraitImages,

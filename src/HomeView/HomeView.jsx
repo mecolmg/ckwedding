@@ -1,7 +1,6 @@
 import React from 'react';
 import Footer from 'Footer/Footer.jsx';
 import Navigation from 'Navigation/Navigation.jsx';
-import RSVP from 'RSVP/RSVP.jsx';
 import Splash from 'Splash/Splash.jsx';
 import WeddingInfo from 'WeddingInfo/WeddingInfo.jsx';
 import EmailForm from 'EmailForm/EmailForm.jsx';
