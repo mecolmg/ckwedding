@@ -13,6 +13,7 @@ import color_run from "./images/color_run.jpg";
 import proposal from "./images/proposal.jpg";
 import duck_pond from "./images/duck_pond.jpg";
 import mexico_repel from "./images/mexico_repel.jpg";
+import college_grad from "./images/college_grad.jpg";
 import new_zealand from "./images/new_zealand.jpg";
 
 function OurStoryInfo() {
@@ -99,6 +100,11 @@ function OurStoryInfo() {
         one knee and proposed (and Katie accepted)!
       </p>
       <div className={styles.horizontalImages}>
+        <img
+          src={college_grad}
+          className={styles.horizontalImage}
+          id="college_grad"
+        />
         <img src={new_zealand} className={styles.horizontalImage} />
       </div>
       <p>
