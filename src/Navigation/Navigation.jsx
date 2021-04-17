@@ -1,15 +1,16 @@
-import React from 'react';
-import styles from './Navigation.module.scss';
-import {NavLink} from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./Navigation.module.scss";
+import { NavLink } from "react-router-dom";
 
 function Navigation(props) {
   const classNames =
-    styles.navigation + (props.className ? ` ${props.className}` : '');
+    styles.navigation + (props.className ? ` ${props.className}` : "");
   return (
     <div className={classNames}>
       <h1>Colm Gallagher & Katelyn Salvatore</h1>
       <h3>
-        <span className={styles.nowrap}>September 26, 2020 |&nbsp;</span>
+        <span className={styles.nowrap}>August 28, 2021 |&nbsp;</span>
         <span className={styles.nowrap}>Bluemont, VA</span>
       </h3>
       <div className={styles.menu}>
@@ -22,18 +23,32 @@ function Navigation(props) {
           Home
         </NavLink>
         <NavLink
-          to="/covid"
-          className={styles.menuItem}
-          activeClassName={styles.menuItemActive}
-        >
-          COVID-19 Update
-        </NavLink>
-        <NavLink
           to="/venue"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}
         >
           About Venue
+        </NavLink>
+        <NavLink
+          to="/our_story"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
+          Our Story
+        </NavLink>
+        <NavLink
+          to="/menu"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
+          Menu
+        </NavLink>
+        <NavLink
+          to="/registry"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
+          Registry
         </NavLink>
         <NavLink
           to="/hotels"
@@ -43,7 +58,7 @@ function Navigation(props) {
           Hotel Info
         </NavLink>
         <NavLink
-          to="/photos"
+          to="/gallery"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}
         >
@@ -53,5 +68,9 @@ function Navigation(props) {
     </div>
   );
 }
+
+Navigation.propTypes = {
+  className: PropTypes.string,
+};
 
 export default Navigation;

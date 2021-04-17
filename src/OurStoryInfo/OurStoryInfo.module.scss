@@ -1,0 +1,54 @@
+// Module styles for the OurStoryInfo component.
+@import 'index';
+
+.ourStoryInfo {
+  @extend .card;
+  text-align: left;
+  padding: 16px 32px;
+}
+
+.title {
+  margin-top: 0;
+  text-align: center;
+}
+
+.portraitImages,
+.horizontalImages {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.portraitImage,
+.horizontalImage {
+  object-fit: cover;
+  margin-bottom: 8px;
+  &:global(#physics) {
+    object-position: right top;
+  }
+  &:global(#waj_apt) {
+    object-position: center 5%;
+  }
+  &:global(#senior_prom),
+  &:global(#duck_pond),
+  &:global(#college_grad) {
+    object-position: center 10%;
+  }
+  &:global(#high_school_grad),
+  &:global(#color_run) {
+    object-position: center 20%;
+  }
+}
+
+.portraitImage {
+  min-width: 0;
+  height: 300px;
+  width: 300px;
+}
+
+.horizontalImage {
+  width: 400px;
+  height: 300px;
+  max-width: 100%;
+}

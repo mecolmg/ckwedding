@@ -1,46 +1,140 @@
-import React from 'react';
-import request from 'request';
-import styles from './Gallery.module.scss';
-import ImageGallery from 'react-image-gallery';
-import {isMobile} from 'react-device-detect';
+import React, { useCallback, useEffect, useState } from "react";
+import styles from "./Gallery.module.scss";
+import { db } from "../firebase";
+import PhotoGallery from "react-photo-gallery";
+import Button from "@material-ui/core/Button";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-// See: https://link.medium.com/dAn9pIr6z0.
-const PHOTOS_API_BASE_URL = 'https://google-photos-album-demo.glitch.me/';
-// Engagement Photos Album: https://photos.app.goo.gl/ehAVnyuXHsxPwjnY9.
-const GOOGLE_PHOTOS_ALBUM_ID = 'ehAVnyuXHsxPwjnY9';
-const GET_PHOTOS_URL = `${PHOTOS_API_BASE_URL}${GOOGLE_PHOTOS_ALBUM_ID}`;
+const Gallery = (props) => {
+  const [photos, setPhotos] = useState([]);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
-class Gallery extends React.PureComponent {
-  state = {
-    images: [],
+  useEffect(() => {
+    db.collection("photos")
+      .get()
+      .then((snapshot) => {
+        setPhotos(
+          snapshot.docs.map((doc) => {
+            const url = doc.get("url");
+            return {
+              src: url,
+              placeholderSrc: `${url}=w100`,
+              thumbnailSrc: `${url}=w480`,
+              lightboxSrc: `${url}=w1920`,
+              width: doc.get("width"),
+              height: doc.get("height"),
+            };
+          })
+        );
+      });
+  }, []);
+
+  const openLightbox = useCallback((event, { photo, index }) => {
+    setCurrentImage(index);
+    setViewerIsOpen(true);
+  }, []);
+
+  const closeLightbox = () => {
+    setCurrentImage(0);
+    setViewerIsOpen(false);
   };
 
-  async componentDidMount() {
-    request.get(GET_PHOTOS_URL, (error, response) => {
-      if (error) return;
-      const responseData = JSON.parse(response.body);
-      const images = responseData.map((url: string) => ({
-        original: `${url}=w1024`,
-        thumbnail: `${url}=w100`,
-      }));
-      this.setState({images});
-    });
-  }
+  const mainImg = photos[currentImage];
+  const nextImg = photos[(currentImage + photos.length + 1) % photos.length];
+  const prevImg = photos[(currentImage + photos.length - 1) % photos.length];
 
-  render() {
-    return (
-      <div className={styles.gallery}>
-        {this.state.images.length > 0 ? (
-          <ImageGallery
-            items={this.state.images}
-            autoPlay={true}
-            thumbnailPosition={isMobile ? 'bottom' : 'right'}
-            lazyLoad={true}
-          />
-        ) : null}
-      </div>
-    );
+  return (
+    <div className={styles.gallery}>
+      <Button
+        className={styles.photographerLink}
+        variant="contained"
+        color="primary"
+        href="https://birdsofafeatherphotography.passgallery.com/-kcmicrowedding/gallery"
+      >
+        View Photographer Gallery
+      </Button>
+      {photos.length > 0 ? (
+        <PhotoGallery
+          photos={photos}
+          onClick={openLightbox}
+          renderImage={LazyImage}
+          margin={4}
+        />
+      ) : (
+        <div>
+          <CircularProgress />
+        </div>
+      )}
+      {viewerIsOpen && (
+        <Lightbox
+          mainSrc={mainImg.lightboxSrc}
+          nextSrc={nextImg.lightboxSrc}
+          prevSrc={prevImg.lightboxSrc}
+          mainSrcThumbnail={mainImg.thumbnailSrc}
+          nextSrcThumbnail={nextImg.thumbnailSrc}
+          prevSrcThumbnail={prevImg.thumbnailSrc}
+          onCloseRequest={() => closeLightbox()}
+          onMovePrevRequest={() =>
+            setCurrentImage((currentImage - 1) % photos.length)
+          }
+          onMoveNextRequest={() =>
+            setCurrentImage((currentImage + 1) % photos.length)
+          }
+          reactModalProps={{
+            onAfterOpen: () => {
+              document.body.style.overflow = "hidden";
+            },
+            onAfterClose: () => {
+              document.body.removeAttribute("style");
+            },
+          }}
+        />
+      )}
+    </div>
+  );
+};
+
+const LazyImage = ({
+  index,
+  onClick,
+  photo,
+  margin,
+  direction,
+  top,
+  left,
+  key,
+}) => {
+  const imgStyle = { display: "block" };
+  if (direction === "column") {
+    imgStyle.position = "absolute";
+    imgStyle.left = left;
+    imgStyle.top = top;
   }
-}
+  const imgWithClick = { cursor: "pointer" };
+
+  const handleClick = (event) => {
+    onClick(event, { photo, index });
+  };
+
+  return (
+    <LazyLoadImage
+      key={key}
+      height={photo.height}
+      src={photo.thumbnailSrc}
+      placeholderSrc={photo.placeholderSrc}
+      delayTime={100}
+      effect="opacity"
+      width={photo.width}
+      onClick={onClick ? handleClick : null}
+      wrapperClassName={styles.lazyImageWrapper}
+      style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
+    />
+  );
+};
 
 export default Gallery;

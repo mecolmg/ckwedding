@@ -1,0 +1,83 @@
+// Module styles for RegistryView component.
+
+@import 'index';
+@import 'devices';
+
+$card-width-desktop: 200px;
+$card-width-mobile: 150px;
+
+.registries {
+  @extend .sectionMargins;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: -8px;
+}
+
+.registry {
+  flex: 0 0 $card-width-desktop;
+  margin: 8px;
+  @media #{$screen-phone} {
+    flex-basis: calc(50% - 16px);
+  }
+}
+
+.registryImage:global(.MuiCardMedia-root) {
+  background-size: 85%;
+  height: 100px;
+}
+
+.registryItems {
+  @extend .sectionMargins;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.registryItem {
+  flex: 1 0 $card-width-desktop;
+  margin: 8px;
+  max-width: 240px;
+  @media #{$screen-phone} {
+    flex: 0 0 calc(50% - 16px);
+  }
+}
+
+.registryItemAction {
+  height: 100%;
+}
+
+.registryItemImage {
+  position: relative;
+  height: $card-width-desktop;
+  @media #{$screen-phone} {
+    height: $card-width-mobile;
+  }
+}
+
+.registryItemBadge:global(.MuiButton-root) {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.registryItemCta:global(.MuiFab-root) {
+  position: absolute;
+  bottom: -24px;
+  right: 8px;
+}
+
+.registryItemContent:global(.MuiCardContent-root) {
+  padding: 24px 16px;
+}
+
+.registryItemName:global(.MuiTypography-root) {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 600;
+  @media #{$screen-phone} {
+    font-size: 0.9rem;
+  }
+}
