@@ -47,13 +47,13 @@ export function HotelsInfo(props) {
           viewMoreAction={() => setComfortSuitesDialogOpen(true)}
           hidden
         />
-        <Hotel
+        {/*<Hotel
           name="Tru by Hilton"
           address={'One Loudoun\nAshburn, VA 20147'}
           mapsLink="https://goo.gl/maps/7RA7UHhr4LjU8s1X9"
           logo={TruHiltonLogo}
           viewMoreAction={() => setTruHiltonDialogOpen(true)}
-        />
+        />*/}
         <Hotel
           name="Embassy Suites by Hilton"
           address={'44610 Waxpool Road\nDulles, Virginia 20147'}
@@ -428,12 +428,12 @@ export const HotelsAndHousesMap = compose(
         //   position: { lat: 39.104933, lng: -77.548374 },
         //   link: "https://goo.gl/maps/zYoyV7xnGgSj76WG6",
         // },
-        {
-          name: 'Tru by Hilton - One Loudoun',
-          position: {lat: 39.0543889, lng: -77.4549387},
-          link: 'https://goo.gl/maps/z8VMnqJtBLJbzJHR6',
-          zIndex: 1,
-        },
+        // {
+        //   name: 'Tru by Hilton - One Loudoun',
+        //   position: {lat: 39.0543889, lng: -77.4549387},
+        //   link: 'https://goo.gl/maps/z8VMnqJtBLJbzJHR6',
+        //   zIndex: 1,
+        // },
         {
           name: 'Embassy Suites by Hilton',
           position: {lat: 39.01427, lng: -77.46201},
