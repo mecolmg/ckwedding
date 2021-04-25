@@ -13,7 +13,7 @@ export default function ContactStep({respondents, onRespondentsChange}) {
       options={[]}
       ChipProps={{color: 'primary'}}
       renderInput={(params) => (
-        <TextField {...params} label="Emails" variant="outlined" />
+        <TextField {...params} label="Emails (optional)" variant="outlined" />
       )}
     />
   );

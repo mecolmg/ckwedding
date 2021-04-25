@@ -45,7 +45,9 @@ export default function RsvpForm() {
   };
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setActiveStep((prevActiveStep) => {
+      return prevActiveStep + 1;
+    });
   };
 
   const handleBack = () => {
@@ -70,7 +72,7 @@ export default function RsvpForm() {
         ).length === 0,
     },
     {
-      label: 'Dinner',
+      label: 'Guest Meal(s)',
       content: (
         <MealStep
           respondents={respondents}
