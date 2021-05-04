@@ -10,6 +10,8 @@ import ContactStep from "./ContactStep";
 
 const GET_ATTENDEES_URL =
   "https://script.google.com/macros/s/AKfycbxTjLDFGXa9BtKJPKpWaISqkx2nhwHePKQzHE1o/exec";
+const POST_ATTENDEES_URL =
+  "https://script.google.com/macros/s/AKfycbxPuN8-2jQXmQ9rgANprko2vXjHjoVj6cdZ10oGoJkR1YMfS9hSaT0wYUR3BCQDOp4G/exec";
 
 export default function RsvpForm() {
   const [activeStep, setActiveStep] = useState(0);
@@ -21,6 +23,14 @@ export default function RsvpForm() {
       response.json()
     );
     setAttendees(response.rows);
+  };
+
+  const postAttendees = async () => {
+    fetch(POST_ATTENDEES_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(respondents),
+    });
   };
 
   useEffect(() => {
@@ -126,13 +136,7 @@ export default function RsvpForm() {
                   <Button
                     color="primary"
                     disabled={validate ? !validate() : false}
-                    onClick={
-                      isFinalStep
-                        ? () => {
-                            console.log(respondents);
-                          }
-                        : onNext
-                    }
+                    onClick={isFinalStep ? postAttendees : onNext}
                     variant="contained"
                   >
                     {isFinalStep ? "Submit" : "Next"}
