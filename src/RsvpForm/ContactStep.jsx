@@ -1,20 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import {RespondentPropType} from './respondents';
+import React from "react";
+import PropTypes from "prop-types";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import { RespondentPropType, RespondentUpdater } from "./respondents";
 
-export default function ContactStep({respondents, onRespondentsChange}) {
+export default function ContactStep({ respondents, onRespondentsChange }) {
+  const updateRespondents = RespondentUpdater.forAllRespondents(
+    respondents,
+    onRespondentsChange
+  );
+
   return (
     <Autocomplete
       multiple
       freeSolo
       disableClearable
       options={[]}
-      ChipProps={{color: 'primary'}}
+      value={
+        new Array(
+          ...new Set(
+            respondents
+              .flatMap((respondent) => respondent.emails.split(","))
+              .filter((email) => email !== "")
+          )
+        )
+      }
+      ChipProps={{ color: "primary" }}
       renderInput={(params) => (
         <TextField {...params} label="Emails (optional)" variant="outlined" />
       )}
+      onChange={(_, emails) => {
+        updateRespondents("emails", emails.join(","));
+      }}
     />
   );
 }

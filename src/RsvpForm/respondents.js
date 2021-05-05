@@ -1,12 +1,19 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class RespondentUpdater {
   static from(respondents, onRespondentsChange) {
     return (i, key, value) =>
       onRespondentsChange(
         respondents.map((respondent, j) =>
-          i === j ? {...respondent, [`${key}`]: value} : {...respondent}
+          i === j ? { ...respondent, [`${key}`]: value } : { ...respondent }
         )
+      );
+  }
+
+  static forAllRespondents(respondents, onRespondentsChange) {
+    return (key, value) =>
+      onRespondentsChange(
+        respondents.map((respondent) => ({ ...respondent, [`${key}`]: value }))
       );
   }
 }
@@ -27,4 +34,4 @@ const RespondentPropType = PropTypes.shape({
   plusOneMealChoice: PropTypes.string,
 });
 
-export {RespondentUpdater, RespondentPropType};
+export { RespondentUpdater, RespondentPropType };
