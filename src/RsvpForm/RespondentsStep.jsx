@@ -29,6 +29,30 @@ export default function RespondentsStep({
     onRespondentsChange
   );
 
+  const getAttendees = () => {
+    const sortedAttendees = attendees.sort((a, b) => {
+      const getId = (o) => `${o.lastName}${o.familyName}${o.firstName}`;
+      return -getId(b).localeCompare(getId(a));
+    });
+    const familyMap = new Map();
+    for (const attendee of sortedAttendees) {
+      if (familyMap.has(attendee.familyName)) {
+        familyMap.get(attendee.familyName).push(attendee);
+      } else {
+        familyMap.set(attendee.familyName, [attendee]);
+      }
+    }
+    const duppedAttendees = [];
+    let lastFamilyName = null;
+    for (const attendee of sortedAttendees) {
+      if (lastFamilyName !== attendee.familyName) {
+        duppedAttendees.push(...familyMap.get(attendee.familyName));
+        lastFamilyName = attendee.familyName;
+      }
+    }
+    return duppedAttendees;
+  };
+
   return (
     <>
       <Autocomplete
@@ -42,12 +66,22 @@ export default function RespondentsStep({
         groupBy={(attendee) => attendee.familyName}
         loading={attendees.length === 0}
         loadingText={<LoadingAttendees />}
+        filterOptions={(options, { inputValue }) => {
+          const inputValueLower = inputValue.toLowerCase();
+          return new Array(
+            ...new Set(
+              options.filter((option) =>
+                option.fullName.toLowerCase().includes(inputValueLower)
+              )
+            )
+          );
+        }}
         multiple
         ChipProps={{ color: "primary" }}
         onChange={(event, respondents) => {
           onRespondentsChange(respondents);
         }}
-        options={attendees.sort(attendeesComparator)}
+        options={getAttendees()}
         renderInput={(params) => (
           <TextField
             {...params}
@@ -175,11 +209,6 @@ function LoadingAttendees() {
       <div>Loading attendees</div>
     </div>
   );
-}
-
-function attendeesComparator(a, b) {
-  const getId = (o) => `${o.familyName}${o.lastName}${o.firstName}`;
-  return -getId(b).localeCompare(getId(a));
 }
 
 function getAttendeeLabel(attendee) {

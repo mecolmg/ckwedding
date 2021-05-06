@@ -165,11 +165,6 @@ export default function RsvpForm() {
           )
         )}
       </Stepper>
-      {activeStep !== 0 && activeStep !== 3 && (
-        <Button disabled={activeStep === 0} onClick={handleBack}>
-          Back
-        </Button>
-      )}
       <Dialog
         open={confirmDialogOpen}
         onClose={() => setConfirmDialogOpen(false)}
