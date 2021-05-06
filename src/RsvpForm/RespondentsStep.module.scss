@@ -54,7 +54,7 @@
     width: calc(100vw - 8px) !important;
     @media only screen and (max-height: #{$phone}) {
       & :global(.MuiAutocomplete-listbox) {
-        max-height: calc(100vh - 64px);
+        max-height: calc(100vh - 96px);
       }
     }
   }
