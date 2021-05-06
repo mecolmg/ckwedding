@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import Button from "@material-ui/core/Button";
 import Checkbox from "@material-ui/core/Checkbox";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Radio from "@material-ui/core/Radio";
@@ -28,6 +30,7 @@ export default function RespondentsStep({
     respondents,
     onRespondentsChange
   );
+  const [open, setOpen] = useState(false);
 
   const getAttendees = () => {
     const sortedAttendees = attendees.sort((a, b) => {
@@ -66,6 +69,23 @@ export default function RespondentsStep({
         groupBy={(attendee) => attendee.familyName}
         loading={attendees.length === 0}
         loadingText={<LoadingAttendees />}
+        open={open}
+        openOnFocus
+        onOpen={() => setOpen(true)}
+        onClose={() => setOpen(false)}
+        popupIcon={
+          open ? (
+            <Button
+              className={styles.doneButton}
+              variant="contained"
+              color="primary"
+            >
+              Done
+            </Button>
+          ) : (
+            <ArrowDropDownIcon />
+          )
+        }
         filterOptions={(options, { inputValue }) => {
           const inputValueLower = inputValue.toLowerCase();
           return new Array(
