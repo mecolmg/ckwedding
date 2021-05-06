@@ -185,6 +185,24 @@ export default function RsvpForm() {
             </a>{" "}
             if you have any questions!
             <br />
+            <br />
+            {respondents.map((respondent) => (
+              <>
+                <p>
+                  {respondent.fullName} is{" "}
+                  {respondent.attending
+                    ? `attending and having the ${respondent.mealChoice}`
+                    : "not attending"}
+                </p>
+                {respondent.plusOneAttending && (
+                  <p>
+                    {respondent.plusOneName} is attending and having the{" "}
+                    {respondent.plusOneMealChoice}
+                  </p>
+                )}
+              </>
+            ))}
+            <br />
             Thank you for responding!
           </DialogContentText>
         </DialogContent>

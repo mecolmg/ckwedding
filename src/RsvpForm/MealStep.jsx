@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import FormInput from './FormInput';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import styles from './MealStep.module.scss';
-import {RespondentPropType, RespondentUpdater} from './respondents';
+import React from "react";
+import PropTypes from "prop-types";
+import FormInput from "./FormInput";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormLabel from "@material-ui/core/FormLabel";
+import styles from "./MealStep.module.scss";
+import { RespondentPropType, RespondentUpdater } from "./respondents";
 
-export default function MealStep({respondents, onRespondentsChange}) {
+export default function MealStep({ respondents, onRespondentsChange }) {
   const updateRespondent = RespondentUpdater.from(
     respondents,
     onRespondentsChange
@@ -30,14 +30,14 @@ export default function MealStep({respondents, onRespondentsChange}) {
       mealRespondents.push({
         fullName,
         mealChoice,
-        onChange: (value) => updateRespondent(index, 'mealChoice', value),
+        onChange: (value) => updateRespondent(index, "mealChoice", value),
       });
       if (plusOneAttending) {
         mealRespondents.push({
           fullName: plusOneName,
           mealChoice: plusOneMealChoice,
           onChange: (value) =>
-            updateRespondent(index, 'plusOneMealChoice', value),
+            updateRespondent(index, "plusOneMealChoice", value),
         });
       }
     }
@@ -48,7 +48,7 @@ export default function MealStep({respondents, onRespondentsChange}) {
     <>
       {respondents
         .flatMap(getMealRespondents)
-        .map(({fullName, mealChoice, onChange}, index) => (
+        .map(({ fullName, mealChoice, onChange }, index) => (
           <MealChoiceForm
             key={index}
             fullName={fullName}
@@ -65,7 +65,7 @@ MealStep.propTypes = {
   onRespondentsChange: PropTypes.func.isRequired,
 };
 
-function MealChoiceForm({fullName, mealChoice, onChange}) {
+function MealChoiceForm({ fullName, mealChoice, onChange }) {
   return (
     <FormInput className={styles.mealChoiceForm}>
       <FormLabel>What will {fullName} be eating?</FormLabel>
@@ -86,7 +86,7 @@ function MealChoiceForm({fullName, mealChoice, onChange}) {
           label="Rosemary Chicken"
         />
         <FormControlLabel
-          value="crabcake"
+          value="crab cake"
           control={<Radio />}
           label="Chesapeake Crab Cake"
         />
