@@ -33,3 +33,7 @@
   background-size: 16px 1px;
   background-repeat: repeat-x;
 }
+
+:global(.MuiAutocomplete-popper) :global(.MuiAutocomplete-groupLabel) {
+  line-height: 24px;
+}
