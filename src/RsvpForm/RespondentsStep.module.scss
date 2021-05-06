@@ -48,12 +48,14 @@
   line-height: 24px;
 }
 
-@media #{$screen-mobile} {
+@media #{$screen-phone} {
   :global(.MuiAutocomplete-popper) {
     // It killed me a little, but trust me it's important.
     width: calc(100vw - 8px) !important;
-    &:global(.MuiAutocomplete-listbox) {
-      max-height: calc(100vh - 64px);
+    @media only screen and (max-height: #{$phone}) {
+      & :global(.MuiAutocomplete-listbox) {
+        max-height: calc(100vh - 64px);
+      }
     }
   }
 }
