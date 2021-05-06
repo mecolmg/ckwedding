@@ -178,7 +178,7 @@ function LoadingAttendees() {
 }
 
 function attendeesComparator(a, b) {
-  const getId = (o) => `${o.lastName}${o.familyName}${o.firstName}`;
+  const getId = (o) => `${o.familyName}${o.lastName}${o.firstName}`;
   return -getId(b).localeCompare(getId(a));
 }
 
