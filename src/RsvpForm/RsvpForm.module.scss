@@ -1,0 +1,12 @@
+// Module styles for RsvpForm component.
+
+@import "index";
+
+.rsvpForm {
+  @extend .card;
+  margin-top: 0;
+}
+
+.title {
+  margin-top: 0;
+}

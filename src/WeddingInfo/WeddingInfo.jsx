@@ -24,10 +24,6 @@ function WeddingInfo(props) {
           <i> tie the knot</i> on our original date - September 26
           <sup>th</sup>, 2020 - witnessed only by our most immediate family.
         </p>
-        <p>
-          In an effort to simplify the task of sending out updates like this, we
-          ask you please share your email with us in the form below.
-        </p>
         <div className={styles.signature}>- Colm and Katie</div>
         <div className={styles.events}>
           <div className={styles.event}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -13,12 +13,14 @@ import RespondentsStep from "./RespondentsStep";
 import MealStep from "./MealStep";
 import ContactStep from "./ContactStep";
 
+import styles from "./RsvpForm.module.scss";
+
 const GET_ATTENDEES_URL =
   "https://script.google.com/macros/s/AKfycbxTjLDFGXa9BtKJPKpWaISqkx2nhwHePKQzHE1o/exec";
 const POST_ATTENDEES_URL =
   "https://script.google.com/macros/s/AKfycbxPuN8-2jQXmQ9rgANprko2vXjHjoVj6cdZ10oGoJkR1YMfS9hSaT0wYUR3BCQDOp4G/exec";
 
-export default function RsvpForm() {
+const RsvpForm = ({ className, ...props }, ref) => {
   const [activeStep, setActiveStep] = useState(0);
   const [attendees, setAttendees] = useState([]);
   const [respondents, setRespondents] = useState([]);
@@ -140,31 +142,34 @@ export default function RsvpForm() {
 
   return (
     <React.Fragment>
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map(
-          ({ label, content, Content, validate, onBack, onNext }, index) => (
-            <Step key={index}>
-              <StepLabel>{label}</StepLabel>
-              <StepContent>
-                {content}
-                <div>
-                  {activeStep > 0 && <Button onClick={onBack}>Back</Button>}
-                  <Button
-                    color="primary"
-                    disabled={validate ? !validate() : false}
-                    onClick={
-                      isFinalStep ? () => setConfirmDialogOpen(true) : onNext
-                    }
-                    variant="contained"
-                  >
-                    {isFinalStep ? "Submit" : "Next"}
-                  </Button>
-                </div>
-              </StepContent>
-            </Step>
-          )
-        )}
-      </Stepper>
+      <div className={`${styles.rsvpForm} ${className}`} ref={ref} {...props}>
+        <h1 className={styles.title}>RSVP</h1>
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {steps.map(
+            ({ label, content, Content, validate, onBack, onNext }, index) => (
+              <Step key={index}>
+                <StepLabel>{label}</StepLabel>
+                <StepContent>
+                  {content}
+                  <div>
+                    {activeStep > 0 && <Button onClick={onBack}>Back</Button>}
+                    <Button
+                      color="primary"
+                      disabled={validate ? !validate() : false}
+                      onClick={
+                        isFinalStep ? () => setConfirmDialogOpen(true) : onNext
+                      }
+                      variant="contained"
+                    >
+                      {isFinalStep ? "Submit" : "Next"}
+                    </Button>
+                  </div>
+                </StepContent>
+              </Step>
+            )
+          )}
+        </Stepper>
+      </div>
       <Dialog
         open={confirmDialogOpen}
         onClose={() => setConfirmDialogOpen(false)}
@@ -240,4 +245,6 @@ export default function RsvpForm() {
       </Dialog>
     </React.Fragment>
   );
-}
+};
+
+export default forwardRef(RsvpForm);
