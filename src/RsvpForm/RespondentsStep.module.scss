@@ -35,11 +35,20 @@
   background-repeat: repeat-x;
 }
 
+.respondentInput :global(.MuiInputLabel-formControl) {
+  width: calc(100% - 48px);
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
 :global(.MuiAutocomplete-popper) :global(.MuiAutocomplete-groupLabel) {
   line-height: 24px;
 }
 
-@media #{$screen-phone} {
+@media #{$screen-mobile} {
   :global(.MuiAutocomplete-popper) {
     // It killed me a little, but trust me it's important.
     width: calc(100vw - 8px) !important;
