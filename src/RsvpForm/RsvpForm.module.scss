@@ -1,6 +1,7 @@
 // Module styles for RsvpForm component.
 
 @import "index";
+@import "devices";
 
 .rsvpForm {
   @extend .card;
@@ -9,4 +10,11 @@
 
 .title {
   margin-top: 0;
+}
+
+@media #{$screen-mobile} {
+  .rsvpForm {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
