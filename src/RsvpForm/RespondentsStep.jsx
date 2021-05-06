@@ -88,13 +88,15 @@ export default function RespondentsStep({
         }
         filterOptions={(options, { inputValue }) => {
           const inputValueLower = inputValue.toLowerCase();
-          return new Array(
-            ...new Set(
-              options.filter((option) =>
-                option.fullName.toLowerCase().includes(inputValueLower)
-              )
-            )
-          );
+          return inputValue === ""
+            ? options
+            : new Array(
+                ...new Set(
+                  options.filter((option) =>
+                    option.fullName.toLowerCase().includes(inputValueLower)
+                  )
+                )
+              );
         }}
         multiple
         ChipProps={{ color: "primary" }}
@@ -232,5 +234,7 @@ function LoadingAttendees() {
 }
 
 function getAttendeeLabel(attendee) {
-  return `${attendee.firstName} ${attendee.lastName}`;
+  return `${attendee.firstName} ${attendee.lastName}${
+    attendee.hasPlusOne ? " & Guest" : ""
+  }`;
 }
