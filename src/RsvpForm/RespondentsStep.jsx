@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import Checkbox from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormLabel from '@material-ui/core/FormLabel';
-import Collapse from '@material-ui/core/Collapse';
-import FormInput from './FormInput';
-import styles from './RespondentsStep.module.scss';
-import {RespondentPropType, RespondentUpdater} from './respondents';
+import React from "react";
+import PropTypes from "prop-types";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import Checkbox from "@material-ui/core/Checkbox";
+import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormLabel from "@material-ui/core/FormLabel";
+import Collapse from "@material-ui/core/Collapse";
+import FormInput from "./FormInput";
+import styles from "./RespondentsStep.module.scss";
+import { RespondentPropType, RespondentUpdater } from "./respondents";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -32,6 +32,7 @@ export default function RespondentsStep({
   return (
     <>
       <Autocomplete
+        className={styles.respondentInput}
         autoHighlight
         disableClearable
         disableCloseOnSelect
@@ -42,7 +43,7 @@ export default function RespondentsStep({
         loading={attendees.length === 0}
         loadingText={<LoadingAttendees />}
         multiple
-        ChipProps={{color: 'primary'}}
+        ChipProps={{ color: "primary" }}
         onChange={(event, respondents) => {
           onRespondentsChange(respondents);
         }}
@@ -54,13 +55,13 @@ export default function RespondentsStep({
             variant="outlined"
           />
         )}
-        renderOption={(attendee, {selected}) => (
+        renderOption={(attendee, { selected }) => (
           <React.Fragment>
             <Checkbox
               checked={selected}
               checkedIcon={checkedIcon}
               icon={icon}
-              style={{marginRight: 8}}
+              style={{ marginRight: 8 }}
             />
             {getAttendeeLabel(attendee)}
           </React.Fragment>
@@ -88,8 +89,8 @@ RespondentsStep.propTypes = {
   onRespondentsChange: PropTypes.func.isRequired,
 };
 
-function RespondentForm({respondent, updateRespondent, ...props}) {
-  const {attending, fullName, hasPlusOne} = respondent;
+function RespondentForm({ respondent, updateRespondent, ...props }) {
+  const { attending, fullName, hasPlusOne } = respondent;
 
   return (
     <div {...props}>
@@ -99,7 +100,7 @@ function RespondentForm({respondent, updateRespondent, ...props}) {
           className={styles.radioRow}
           value={attending}
           onChange={(event, value) => {
-            updateRespondent('attending', value === 'true');
+            updateRespondent("attending", value === "true");
           }}
           row
         >
@@ -122,8 +123,8 @@ RespondentForm.propTypes = {
   updateRespondent: PropTypes.func.isRequired,
 };
 
-function PlusOneForm({respondent, updateRespondent}) {
-  const {fullName, plusOneAttending, plusOneName} = respondent;
+function PlusOneForm({ respondent, updateRespondent }) {
+  const { fullName, plusOneAttending, plusOneName } = respondent;
 
   return (
     <>
@@ -133,7 +134,7 @@ function PlusOneForm({respondent, updateRespondent}) {
           className={styles.plusOneRadios}
           value={plusOneAttending}
           onChange={(event, value) => {
-            updateRespondent('plusOneAttending', value === 'true');
+            updateRespondent("plusOneAttending", value === "true");
           }}
           row
         >
@@ -151,7 +152,7 @@ function PlusOneForm({respondent, updateRespondent}) {
                 variant="outlined"
                 value={plusOneName}
                 onChange={(event) => {
-                  updateRespondent('plusOneName', event.target.value);
+                  updateRespondent("plusOneName", event.target.value);
                 }}
               />
             </FormInput>

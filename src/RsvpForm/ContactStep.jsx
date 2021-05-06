@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { RespondentPropType, RespondentUpdater } from "./respondents";
+import styles from "./ContactStep.module.scss";
 
 export default function ContactStep({ respondents, onRespondentsChange }) {
   const updateRespondents = RespondentUpdater.forAllRespondents(
@@ -12,6 +13,7 @@ export default function ContactStep({ respondents, onRespondentsChange }) {
 
   return (
     <Autocomplete
+      className={styles.emailInput}
       multiple
       freeSolo
       disableClearable
