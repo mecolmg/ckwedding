@@ -39,7 +39,7 @@
   width: calc(100% - 48px);
   text-align: left;
   text-overflow: ellipsis;
-  overflow-x: hidden;
+  overflow: hidden;
   white-space: nowrap;
   line-height: 1.2;
 }

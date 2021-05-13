@@ -14,6 +14,7 @@ export default function ContactStep({ respondents, onRespondentsChange }) {
   return (
     <Autocomplete
       className={styles.emailInput}
+      autoSelect
       multiple
       freeSolo
       disableClearable
