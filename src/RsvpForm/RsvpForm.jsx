@@ -60,16 +60,20 @@ const RsvpForm = ({ className, ...props }, ref) => {
       newRespondents.map(({ ...respondent }) => {
         if (!respondent.attending) {
           respondent.mealChoice = "";
+          respondent.dietaryRestrictions = "";
+          respondent.emails = "";
           respondent.plusOneAttending = false;
         }
         if (!respondent.plusOneAttending) {
           respondent.plusOneTitle = "";
           respondent.plusOneName = "";
           respondent.plusOneMealChoice = "";
+          respondent.plusOneDietaryRestrictions = "";
         }
         return respondent;
       })
     );
+    console.log(respondents);
   };
 
   const handleNext = (increment = 1) => {
@@ -196,13 +200,28 @@ const RsvpForm = ({ className, ...props }, ref) => {
                 <p>
                   {respondent.fullName} is{" "}
                   {respondent.attending
-                    ? `attending and having the ${respondent.mealChoice}`
-                    : "not attending"}
+                    ? `attending and having the ${respondent.mealChoice}.`
+                    : "not attending."}
+                  {respondent.dietaryRestrictions != null &&
+                    respondent.dietaryRestrictions.length > 0 && (
+                      <div>
+                        {" "}
+                        Dietary restrictions: {respondent.dietaryRestrictions}.
+                      </div>
+                    )}
                 </p>
                 {respondent.plusOneAttending && (
                   <p>
                     {respondent.plusOneName} is attending and having the{" "}
-                    {respondent.plusOneMealChoice}
+                    {respondent.plusOneMealChoice}.
+                    {respondent.plusOneDietaryRestrictions != null &&
+                      respondent.plusOneDietaryRestrictions.length > 0 && (
+                        <div>
+                          {" "}
+                          Dietary restrictions:{" "}
+                          {respondent.plusOneDietaryRestrictions}.
+                        </div>
+                      )}
                   </p>
                 )}
               </>
