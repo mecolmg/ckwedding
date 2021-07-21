@@ -30,7 +30,7 @@ function Navigation(props) {
           About Venue
         </NavLink>
         <NavLink
-          to="/our_story"
+          to="/our-story"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}
         >

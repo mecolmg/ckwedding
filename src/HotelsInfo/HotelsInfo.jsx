@@ -11,8 +11,6 @@ import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import MarkerWithLabel from "react-google-maps/lib/components/addons/MarkerWithLabel";
 import Dialog from "common/Dialog";
 
-const MAPS_API_KEY = "AIzaSyDGOgMb65UUKxKAUrm4tZNYJNPa5Dqxbf8";
-
 export function Splash() {
   return <div className={styles.splash}></div>;
 }
@@ -308,7 +306,7 @@ function Hotel({
 
 export const HotelsAndHousesMap = compose(
   withProps({
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${MAPS_API_KEY}`,
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_MAPS_API_KEY}`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />,
