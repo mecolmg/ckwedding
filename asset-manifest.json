@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.0ee38ee7.chunk.css",
-    "main.js": "/static/js/main.35a67762.chunk.js",
-    "main.js.map": "/static/js/main.35a67762.chunk.js.map",
+    "main.css": "/static/css/main.cf21ad07.chunk.css",
+    "main.js": "/static/js/main.771f1659.chunk.js",
+    "main.js.map": "/static/js/main.771f1659.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2016aa4a.js",
     "runtime-main.js.map": "/static/js/runtime-main.2016aa4a.js.map",
     "static/css/2.4db03048.chunk.css": "/static/css/2.4db03048.chunk.css",
-    "static/js/2.de871722.chunk.js": "/static/js/2.de871722.chunk.js",
-    "static/js/2.de871722.chunk.js.map": "/static/js/2.de871722.chunk.js.map",
+    "static/js/2.66ad94bf.chunk.js": "/static/js/2.66ad94bf.chunk.js",
+    "static/js/2.66ad94bf.chunk.js.map": "/static/js/2.66ad94bf.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.b79d5b2c10214859687974f7ec68a101.js": "/precache-manifest.b79d5b2c10214859687974f7ec68a101.js",
+    "precache-manifest.6d327d78de3c815f7b9acfce98ade537.js": "/precache-manifest.6d327d78de3c815f7b9acfce98ade537.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.4db03048.chunk.css.map": "/static/css/2.4db03048.chunk.css.map",
-    "static/css/main.0ee38ee7.chunk.css.map": "/static/css/main.0ee38ee7.chunk.css.map",
-    "static/js/2.de871722.chunk.js.LICENSE.txt": "/static/js/2.de871722.chunk.js.LICENSE.txt",
+    "static/css/main.cf21ad07.chunk.css.map": "/static/css/main.cf21ad07.chunk.css.map",
+    "static/js/2.66ad94bf.chunk.js.LICENSE.txt": "/static/js/2.66ad94bf.chunk.js.LICENSE.txt",
     "static/media/Splash.module.scss": "/static/media/AcornStreet@0,5x.eae59cfa.jpg",
     "static/media/HotelsInfo.module.scss": "/static/media/ComfortSuites.6ede344e.png",
     "static/media/MarriottLogo.png": "/static/media/MarriottLogo.eb47c2e4.png",
-    "static/media/TruHilton.png": "/static/media/TruHilton.c1e180c7.png",
     "static/media/college_grad.jpg": "/static/media/college_grad.12b16317.jpg",
     "static/media/color_run.jpg": "/static/media/color_run.5c1aa811.jpg",
     "static/media/duck_pond.jpg": "/static/media/duck_pond.39579701.jpg",
@@ -36,8 +35,8 @@
   "entrypoints": [
     "static/js/runtime-main.2016aa4a.js",
     "static/css/2.4db03048.chunk.css",
-    "static/js/2.de871722.chunk.js",
-    "static/css/main.0ee38ee7.chunk.css",
-    "static/js/main.35a67762.chunk.js"
+    "static/js/2.66ad94bf.chunk.js",
+    "static/css/main.cf21ad07.chunk.css",
+    "static/js/main.771f1659.chunk.js"
   ]
 }
