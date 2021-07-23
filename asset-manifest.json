@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.f14b3e4d.chunk.css",
+    "main.css": "/static/css/main.0ae8bd69.chunk.css",
     "main.js": "/static/js/main.ffcb1599.chunk.js",
     "main.js.map": "/static/js/main.ffcb1599.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2016aa4a.js",
@@ -9,10 +9,10 @@
     "static/js/2.0e4abfd9.chunk.js": "/static/js/2.0e4abfd9.chunk.js",
     "static/js/2.0e4abfd9.chunk.js.map": "/static/js/2.0e4abfd9.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.66461f6f6fbefe8fffd0693e49da5558.js": "/precache-manifest.66461f6f6fbefe8fffd0693e49da5558.js",
+    "precache-manifest.5c48c945e927d6ed409c789304a8ea22.js": "/precache-manifest.5c48c945e927d6ed409c789304a8ea22.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.4db03048.chunk.css.map": "/static/css/2.4db03048.chunk.css.map",
-    "static/css/main.f14b3e4d.chunk.css.map": "/static/css/main.f14b3e4d.chunk.css.map",
+    "static/css/main.0ae8bd69.chunk.css.map": "/static/css/main.0ae8bd69.chunk.css.map",
     "static/js/2.0e4abfd9.chunk.js.LICENSE.txt": "/static/js/2.0e4abfd9.chunk.js.LICENSE.txt",
     "static/media/Splash.module.scss": "/static/media/AcornStreet@0,5x.eae59cfa.jpg",
     "static/media/HotelsInfo.module.scss": "/static/media/ComfortSuites.6ede344e.png",
@@ -36,7 +36,7 @@
     "static/js/runtime-main.2016aa4a.js",
     "static/css/2.4db03048.chunk.css",
     "static/js/2.0e4abfd9.chunk.js",
-    "static/css/main.f14b3e4d.chunk.css",
+    "static/css/main.0ae8bd69.chunk.css",
     "static/js/main.ffcb1599.chunk.js"
   ]
 }
