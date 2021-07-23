@@ -9,6 +9,10 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import RoomIcon from "@material-ui/icons/Room";
 import StarIcon from "@material-ui/icons/Star";
+import LanguageIcon from "@material-ui/icons/Language";
+import DirectionsIcon from "@material-ui/icons/Directions";
+import PhoneIcon from "@material-ui/icons/Phone";
+import ShareIcon from "@material-ui/icons/Share";
 import styles from "./ThingsToDo.module.scss";
 
 const PLACE_IDS = [
@@ -56,7 +60,6 @@ function ThingsToDo() {
   );
 }
 
-const mapRef = React.createRef();
 const ThingsToDoContent = compose(
   withProps({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_PLACES_API_KEY}&libraries=places`,
@@ -107,6 +110,7 @@ const ThingToDo = ({ placeId }) => {
   }, []);
 
   const isOpen = place && place.opening_hours && place.opening_hours.isOpen();
+  const shareData = { url: place && place.url };
 
   return (
     <div>
@@ -179,6 +183,8 @@ const ThingToDo = ({ placeId }) => {
                     href={place.website}
                     target="_blank"
                     rel="noreferrer noopener"
+                    startIcon={<LanguageIcon></LanguageIcon>}
+                    size="medium"
                   >
                     Website
                   </Button>
@@ -189,6 +195,8 @@ const ThingToDo = ({ placeId }) => {
                     href={place.url}
                     target="_blank"
                     rel="noreferrer noopener"
+                    startIcon={<DirectionsIcon></DirectionsIcon>}
+                    size="medium"
                   >
                     Directions
                   </Button>
@@ -201,16 +209,20 @@ const ThingToDo = ({ placeId }) => {
                         " ",
                         ""
                       )}`}
+                      startIcon={<PhoneIcon></PhoneIcon>}
+                      size="medium"
                     >
                       Call
                     </Button>
                   )}
-                  {window.navigator.canShare() && (
+                  {window.navigator.canShare(shareData) && (
                     <Button
                       className={styles.ttdActionButton}
                       variant="outlined"
                       color="primary"
-                      onClick={() => window.navigator.share({ url: place.url })}
+                      onClick={() => window.navigator.share(shareData)}
+                      startIcon={<ShareIcon></ShareIcon>}
+                      size="medium"
                     >
                       Share
                     </Button>
