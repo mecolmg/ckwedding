@@ -40,7 +40,7 @@ ReactDOM.render(
       <Route path="/covid" component={CovidInfoView} />
       <Route path="/venue" component={VenueInfoView} />
       <Route path="/our_story" component={OurStoryInfoView} />
-      <Route path="/out-story" component={OurStoryInfoView} />
+      <Route path="/our-story" component={OurStoryInfoView} />
       <Route path="/gallery" component={PhotosView} />
       <Route path="/photos" component={PhotosView} />
       <Route path="/hotels" component={HotelsInfoView} />
