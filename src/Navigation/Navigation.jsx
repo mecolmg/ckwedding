@@ -23,20 +23,6 @@ function Navigation(props) {
           Home
         </NavLink>
         <NavLink
-          to="/venue"
-          className={styles.menuItem}
-          activeClassName={styles.menuItemActive}
-        >
-          About Venue
-        </NavLink>
-        <NavLink
-          to="/our-story"
-          className={styles.menuItem}
-          activeClassName={styles.menuItemActive}
-        >
-          Our Story
-        </NavLink>
-        <NavLink
           to="/menu"
           className={styles.menuItem}
           activeClassName={styles.menuItemActive}
@@ -57,6 +43,28 @@ function Navigation(props) {
         >
           Hotel Info
         </NavLink>
+        <NavLink
+          to="/things-to-do"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
+          Things to Do
+        </NavLink>
+        <NavLink
+          to="/venue"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
+          About Venue
+        </NavLink>
+        <NavLink
+          to="/our-story"
+          className={styles.menuItem}
+          activeClassName={styles.menuItemActive}
+        >
+          Our Story
+        </NavLink>
+
         <NavLink
           to="/gallery"
           className={styles.menuItem}

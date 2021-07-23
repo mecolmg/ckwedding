@@ -1,5 +1,6 @@
 // Module styles for the ThingsToDo component.
 @import "index";
+@import "devices";
 
 .thingsToDo {
   @extend .card;
@@ -10,4 +11,65 @@
 .title {
   margin-top: 0;
   text-align: center;
+}
+
+.googleMapsButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.ttdCard {
+  margin: 16px 0;
+}
+
+.ttdCardContent {
+  display: flex;
+}
+
+@media #{$screen-tablet} {
+  .ttdCardContent {
+    flex-direction: column;
+  }
+}
+
+.ttdImgContainer {
+  flex: 0 0 200px;
+  height: 200px;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ttdContent {
+  flex: 1 1 0%;
+}
+
+.ttdOpenChip {
+  margin: 0 8px;
+}
+
+.ttdActions {
+  margin: 8px 0;
+}
+
+.ttdCaptions {
+  margin: 4px 0;
+}
+
+:global(.MuiButton-root).ttdActionButton {
+  border-radius: 36px;
+  margin-right: 8px;
+}
+
+:global(.MuiTypography-caption).ttdStarRating {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+:global(.MuiSvgIcon-root).ttdStarRatingIcon {
+  color: #fdd835;
+  margin-right: 4px;
+  font-size: 16px;
 }
