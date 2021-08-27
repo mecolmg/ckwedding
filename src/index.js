@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import HomeView from "./HomeView/HomeView";
+import RsvpView from "./RsvpView/RsvpView";
 import HotelsInfoView from "./HotelsInfoView/HotelsInfoView";
 import VenueInfoView from "./VenueInfoView/VenueInfoView";
 import OurStoryInfoView from "./OurStoryInfoView/OurStoryInfoView";
@@ -13,6 +14,7 @@ import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { HashRouter as Router, Route } from "react-router-dom";
+import ThingsToDoView from "ThingsToDoView/ThingsToDoView";
 
 const theme = createMuiTheme({
   palette: {
@@ -38,11 +40,14 @@ ReactDOM.render(
       <Route path="/covid" component={CovidInfoView} />
       <Route path="/venue" component={VenueInfoView} />
       <Route path="/our_story" component={OurStoryInfoView} />
+      <Route path="/our-story" component={OurStoryInfoView} />
       <Route path="/gallery" component={PhotosView} />
       <Route path="/photos" component={PhotosView} />
       <Route path="/hotels" component={HotelsInfoView} />
       <Route path="/menu" component={MenuInfoView} />
       <Route path="/registry" component={RegistryView} />
+      <Route path="/rsvp" component={RsvpView} />
+      <Route path="/things-to-do" component={ThingsToDoView} />
     </Router>
   </ThemeProvider>,
   document.getElementById("root")

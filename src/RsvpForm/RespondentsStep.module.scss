@@ -1,0 +1,61 @@
+@import "devices";
+@import "colors";
+
+.respondentInput {
+  margin-bottom: 8px;
+}
+
+.doneButton {
+  transform: rotate(180deg);
+  top: 6px;
+}
+
+.loadingContainer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.spinner {
+  margin-right: 16px;
+}
+
+.respondentForm {
+  overflow: hidden;
+}
+
+.respondentForm:not(:last-child) {
+  background-image: linear-gradient(
+    to right,
+    $secondary 50%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 16px 1px;
+  background-repeat: repeat-x;
+}
+
+.respondentInput :global(.MuiInputLabel-formControl) {
+  width: calc(100% - 48px);
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+:global(.MuiAutocomplete-popper) :global(.MuiAutocomplete-groupLabel) {
+  line-height: 24px;
+}
+
+@media #{$screen-phone} {
+  :global(.MuiAutocomplete-popper) {
+    // It killed me a little, but trust me it's important.
+    width: calc(100vw - 8px) !important;
+    @media only screen and (max-height: #{$phone}) {
+      & :global(.MuiAutocomplete-listbox) {
+        max-height: calc(100vh - 96px);
+      }
+    }
+  }
+}
