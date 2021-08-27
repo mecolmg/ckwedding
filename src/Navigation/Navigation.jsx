@@ -10,7 +10,7 @@ function Navigation(props) {
     <div className={classNames}>
       <h1>Colm Gallagher & Katelyn Salvatore</h1>
       <h3>
-        <span className={styles.nowrap}>August 28, 2021 |&nbsp;</span>
+        <span className={styles.nowrap}>August 28, 2021 - 5PM |&nbsp;</span>
         <span className={styles.nowrap}>Bluemont, VA</span>
       </h3>
       <div className={styles.menu}>

@@ -3,8 +3,6 @@ import Footer from "Footer/Footer.jsx";
 import Navigation from "Navigation/Navigation.jsx";
 import Splash from "Splash/Splash.jsx";
 import WeddingInfo from "WeddingInfo/WeddingInfo.jsx";
-import EmailForm from "EmailForm/EmailForm.jsx";
-import RsvpForm from "RsvpForm/RsvpForm";
 import styles from "./HomeView.module.scss";
 
 function HomeView() {
@@ -13,8 +11,7 @@ function HomeView() {
     <div>
       <Navigation className={styles.navigation} />
       <Splash formRef={formRef} />
-      <RsvpForm ref={formRef} className={styles.splashOverlap} />
-      <WeddingInfo />
+      <WeddingInfo className={styles.splashOverlap} />
       <Footer />
     </div>
   );
